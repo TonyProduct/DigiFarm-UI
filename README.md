@@ -18,6 +18,8 @@ A single-page, static HTML reference for DigiFarm's design system — design tok
 - Buttons — variants, sizes, states, underlined links
 - Buttons with icons — leading/trailing icon slots, icon-only buttons
 - Inputs & Forms — text states (including error hint pattern), icon inputs, slider, select
+- Radio — label/description/status field integration, disabled state
+- Checkbox — single on/off toggle, indeterminate state, disabled state
 - Dropdown / Dropdown items — trigger states and the option-list panel
 - Badges & Tags, Cards & Surfaces
 - Alerts — five semantic variants (neutral, info, warning, error, success)
@@ -34,6 +36,7 @@ A single-page, static HTML reference for DigiFarm's design system — design tok
 - Productivity Zones
 - Time Series
 - Field Sustainability Index
+- Illustrations — spot illustrations for empty states, onboarding, marketing
 - Icon Library — all 2,267 Remix Icon icons, searchable, grouped into 17 categories, click to copy
 
 A Changelog card near the top tracks version history in-page.

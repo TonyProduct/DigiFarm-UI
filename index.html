@@ -437,6 +437,66 @@
     }
 
     /* DROPDOWN */
+    /* RADIO */
+    .radio-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    .radio-item.disabled { cursor: not-allowed; opacity: 0.45; }
+    .radio-dot {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: var(--bg);
+      flex-shrink: 0;
+      margin-top: 1px;
+      position: relative;
+      transition: border-color 0.15s;
+    }
+    .radio-item:not(.disabled):hover .radio-dot { border-color: rgba(255,255,255,0.4); }
+    .radio-dot.checked { border-color: var(--green); }
+    .radio-dot.checked::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+    .radio-label-title { font-size: 13px; color: var(--white); font-weight: 500; }
+    .radio-label-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* CHECKBOX */
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    .checkbox-item.disabled { cursor: not-allowed; opacity: 0.45; }
+    .checkbox-box {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: var(--bg);
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .checkbox-item:not(.disabled):hover .checkbox-box { border-color: rgba(255,255,255,0.4); }
+    .checkbox-box.checked { background: var(--green); border-color: var(--green); }
+    .checkbox-box.checked svg { width: 12px; height: 12px; color: #fff; }
+    .checkbox-box.indeterminate { background: var(--green); border-color: var(--green); }
+    .checkbox-box.indeterminate .indeterminate-bar { width: 8px; height: 2px; background: #fff; border-radius: 1px; }
+    .checkbox-label-title { font-size: 13px; color: var(--white); font-weight: 500; }
+    .checkbox-label-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
     .dropdown-label {
       font-size: 13px;
       font-weight: 600;
@@ -1113,6 +1173,8 @@
   <a href="#buttons">Buttons</a>
   <a href="#icon-buttons">Buttons with icons</a>
   <a href="#inputs">Inputs &amp; Forms</a>
+  <a href="#radio">Radio</a>
+  <a href="#checkbox">Checkbox</a>
   <a href="#dropdown">Dropdown</a>
   <a href="#dropdown-items">Dropdown items</a>
   <a href="#badges">Badges &amp; Tags</a>
@@ -1127,6 +1189,7 @@
   <a href="#block-productivity-zones">Productivity Zones</a>
   <a href="#block-time-series">Time Series</a>
   <a href="#block-fsi">Field Sustainability Index</a>
+  <a href="#illustrations">Illustrations</a>
   <a href="#block-icons">Icon Library</a>
 </nav>
 
@@ -1897,6 +1960,81 @@
         <div class="toggle-demo on"></div>
         <div class="toggle-demo"></div>
         <span style="font-size:12px;color:var(--muted);margin-left:6px;">Used for layer visibility, feature flags</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RADIO -->
+  <section id="radio">
+    <div class="section-label">Components</div>
+    <h2>Radio</h2>
+    <p class="section-desc">Radio group with field integration for label, description, and status — including selected, unselected, and disabled states.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row" style="flex-direction:column;align-items:flex-start;gap:2px;">
+        <div class="radio-item">
+          <div class="radio-dot checked"></div>
+          <div>
+            <div class="radio-label-title">Automatic sync</div>
+            <div class="radio-label-desc">Field data syncs every 4 hours. Best for most farms.</div>
+          </div>
+        </div>
+        <div class="radio-item">
+          <div class="radio-dot"></div>
+          <div>
+            <div class="radio-label-title">Manual sync</div>
+            <div class="radio-label-desc">Full control over when new imagery is pulled.</div>
+          </div>
+        </div>
+        <div class="radio-item disabled">
+          <div class="radio-dot"></div>
+          <div>
+            <div class="radio-label-title">Legacy sync</div>
+            <div class="radio-label-desc">No longer available on this plan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKBOX -->
+  <section id="checkbox">
+    <div class="section-label">Components</div>
+    <h2>Checkbox</h2>
+    <p class="section-desc">Toggles a single on/off value — settings, terms acceptance, or opt-in choices. For multiple related options, use the Checkbox List pattern above.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row" style="flex-direction:column;align-items:flex-start;gap:2px;">
+        <div class="checkbox-item">
+          <div class="checkbox-box checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <div class="checkbox-label-title">Enable notifications</div>
+            <div class="checkbox-label-desc">Get alerts when analysis jobs finish.</div>
+          </div>
+        </div>
+        <div class="checkbox-item">
+          <div class="checkbox-box"></div>
+          <div>
+            <div class="checkbox-label-title">Accept terms and conditions</div>
+            <div class="checkbox-label-desc">Required to create a new field.</div>
+          </div>
+        </div>
+        <div class="checkbox-item">
+          <div class="checkbox-box indeterminate"><div class="indeterminate-bar"></div></div>
+          <div>
+            <div class="checkbox-label-title">Select all fields</div>
+            <div class="checkbox-label-desc">Some, but not all, fields are currently selected.</div>
+          </div>
+        </div>
+        <div class="checkbox-item disabled">
+          <div class="checkbox-box"></div>
+          <div>
+            <div class="checkbox-label-title">Auto-sync disabled</div>
+            <div class="checkbox-label-desc">Not available while offline.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3124,6 +3262,65 @@ document.addEventListener('keydown',e=>{
       document.getElementById('fsi-world').style.display = mode === 'world' ? 'block' : 'none';
     }
   </script>
+
+  <!-- ILLUSTRATIONS -->
+  <section id="illustrations">
+    <div class="section-label">Blocks</div>
+    <h2>Illustrations</h2>
+    <p class="section-desc">Spot illustrations used across empty states, onboarding, and marketing surfaces.</p>
+    <hr/>
+
+    <div class="grid-3">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/xXqg14b1/Farm-Illustration.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farm illustration"/>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Farm</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/Mv9dxSXw/Farmer-Illustration-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farmer illustration"/>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Farmer</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/TptCG61S/Farmer-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farmer portrait"/>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Farmer (alt)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/rKfQcksY/For-email-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Email illustration"/>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Email</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/0bVcxsjB/Press-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Press illustration"/>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Press</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/4mWBZgn4/Team-cropped-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Team illustration"/>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Team</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- BLOCKS: ICON LIBRARY -->
   <section id="block-icons">
