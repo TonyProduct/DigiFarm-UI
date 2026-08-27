@@ -504,7 +504,6 @@
       margin-bottom: 6px;
       display: block;
     }
-    .dropdown-label .req { color: #F84A4A; }
     .dropdown-trigger {
       width: 220px;
       background: var(--bg);
@@ -1225,25 +1224,29 @@
     <div id="changelog-recent">
 
       <div class="changelog-version">
-        <div class="changelog-version-title">Version 1.4 <span class="changelog-version-date">(Aug 12, 2026)</span></div>
+        <div class="changelog-version-title">Version 1.4 <span class="changelog-version-date">(Aug 28, 2026)</span></div>
         <ul class="changelog-list">
-          <li>Added the Field Sustainability Index block — percentile band bar, Local/World FSI rank tabs, and tinted context cards.</li>
+          <li>Added Radio and Checkbox components, and an Illustrations block.</li>
+          <li>Redesigned Alerts with five semantic variants (neutral, info, warning, error, success), circular icon badges, and icon-less variants.</li>
+          <li>Replaced the Login / Registration block with the real access-code + email sign-in flow, including the request-account modal.</li>
         </ul>
       </div>
 
       <div class="changelog-version">
-        <div class="changelog-version-title">Version 1.3 <span class="changelog-version-date">(Jul 3, 2026)</span></div>
+        <div class="changelog-version-title">Version 1.3 <span class="changelog-version-date">(Aug 28, 2026)</span></div>
         <ul class="changelog-list">
-          <li>Added the Time Series block.</li>
-          <li>Refined alert semantic colors for better consistency with map overlay panels.</li>
+          <li>Added Table and Tooltip components.</li>
+          <li>Fixed Dropdown item hover behavior — bold weight is now reserved for the active/selected item only.</li>
+          <li>Expanded the Icon Library to the full 2,267-icon Remix Icon set, organized into 17 searchable categories.</li>
         </ul>
       </div>
 
       <div class="changelog-version">
-        <div class="changelog-version-title">Version 1.2 <span class="changelog-version-date">(Jun 5, 2026)</span></div>
+        <div class="changelog-version-title">Version 1.2 <span class="changelog-version-date">(Aug 27, 2026)</span></div>
         <ul class="changelog-list">
-          <li>Added the Productivity Zones block.</li>
-          <li>Extended the crop-type badge palette to cover additional crop combinations.</li>
+          <li>Added the Partners block with light and dark logo variants.</li>
+          <li>Restored full sidebar navigation with section links.</li>
+          <li>Added the Logo section (wordmark and favicon reference sizes) and the Buttons with Icons block.</li>
         </ul>
       </div>
 
@@ -1252,17 +1255,17 @@
     <div id="changelog-older" class="changelog-older">
 
       <div class="changelog-version">
-        <div class="changelog-version-title">Version 1.1 <span class="changelog-version-date">(May 2, 2026)</span></div>
+        <div class="changelog-version-title">Version 1.1 <span class="changelog-version-date">(Aug 27, 2026)</span></div>
         <ul class="changelog-list">
-          <li>Added the Crop Classification block.</li>
-          <li>Expanded the flag card grid to 35 countries.</li>
+          <li>Added the Changelog card and the Download HTML export button.</li>
+          <li>Simplified sidebar navigation to a flat list, removing category labels.</li>
         </ul>
       </div>
 
       <div class="changelog-version">
-        <div class="changelog-version-title">Version 1.0 <span class="changelog-version-date">(Mar 14, 2026)</span></div>
+        <div class="changelog-version-title">Version 1.0 <span class="changelog-version-date">(Aug 27, 2026)</span></div>
         <ul class="changelog-list">
-          <li>Initial release — Foundation (colors, typography, spacing), Components (buttons, inputs, badges, cards, alerts), and Patterns (map UI elements, CSS variables).</li>
+          <li>Initial release — Foundation (colors, typography, spacing, flags), Components (buttons, inputs, badges, cards, alerts), Patterns (map UI elements, CSS variables), and core Blocks (Crop Classification, Productivity Zones, Time Series, Field Sustainability Index).</li>
         </ul>
       </div>
 
@@ -1918,6 +1921,25 @@
           </div>
         </div>
       </div>
+      <div class="comp-row" style="align-items:flex-start;">
+        <div class="comp-label">Input with Label</div>
+        <div>
+          <label class="dropdown-label">Field name</label>
+          <input class="input-demo" type="text" placeholder="Enter field name"/>
+        </div>
+        <div>
+          <label class="dropdown-label">Field name</label>
+          <input class="input-demo" type="text" value="Wheat Field 4" style="border-color:var(--green);"/>
+        </div>
+        <div>
+          <label class="dropdown-label">Field name</label>
+          <input class="input-demo error" type="text" placeholder="Enter field name"/>
+          <div class="input-hint input-hint-error" style="margin-top:6px;">
+            <span class="input-hint-icon">!</span>
+            <span>Field name is required</span>
+          </div>
+        </div>
+      </div>
       <div class="comp-row">
         <div class="comp-label">Input with Icons</div>
         <div class="input-wrap has-left">
@@ -2049,14 +2071,14 @@
     <div class="card">
       <div class="comp-row">
         <div>
-          <label class="dropdown-label">Hybrid Variety<span class="req">*</span></label>
+          <label class="dropdown-label">Hybrid Variety</label>
           <div class="dropdown-trigger">
             <span>Pioneer P2851W</span>
             <svg class="ic" style="width:14px;height:14px;"><use href="#ic-chevron-down"></use></svg>
           </div>
         </div>
         <div>
-          <label class="dropdown-label">Hybrid Variety<span class="req">*</span></label>
+          <label class="dropdown-label">Hybrid Variety</label>
           <div class="dropdown-trigger open">
             <span>Pioneer P2851W</span>
             <svg class="ic" style="width:14px;height:14px;transform:rotate(180deg);"><use href="#ic-chevron-down"></use></svg>
@@ -2204,6 +2226,22 @@
         <div>
           <div class="alert-title">Model processing complete</div>
           <div class="alert-desc">34 field boundaries detected with 94.2% average confidence across the selected area.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-label" style="margin:24px 0 12px;">Without icon</div>
+    <div class="card">
+      <div class="alert alert-info">
+        <div>
+          <div class="alert-title">Scheduled maintenance</div>
+          <div class="alert-desc">DigiFarm will be briefly unavailable on Sunday, 2–3 AM UTC, for planned maintenance.</div>
+        </div>
+      </div>
+      <div class="alert alert-green">
+        <div>
+          <div class="alert-title">Export complete</div>
+          <div class="alert-desc">Your field boundary export is ready and has been sent to your email.</div>
         </div>
       </div>
     </div>
@@ -3272,48 +3310,48 @@ document.addEventListener('keydown',e=>{
 
     <div class="grid-3">
       <div class="swatch">
-        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
-          <img src="https://i.postimg.cc/xXqg14b1/Farm-Illustration.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farm illustration"/>
+        <div style="display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/V5PRtc6M/Farm-Illustration.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farm illustration"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">Farm</div>
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
-          <img src="https://i.postimg.cc/Mv9dxSXw/Farmer-Illustration-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farmer illustration"/>
+        <div style="display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/CdpN8V1R/Farmer-Illustration-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farmer illustration"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">Farmer</div>
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
-          <img src="https://i.postimg.cc/TptCG61S/Farmer-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farmer portrait"/>
+        <div style="display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/RqxRtzFq/Farmer-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Farmer portrait"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">Farmer (alt)</div>
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
-          <img src="https://i.postimg.cc/rKfQcksY/For-email-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Email illustration"/>
+        <div style="display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/fkQKdhLL/For-email-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Email illustration"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">Email</div>
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
-          <img src="https://i.postimg.cc/0bVcxsjB/Press-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Press illustration"/>
+        <div style="display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/Hj12MCxn/Press-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Press illustration"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">Press</div>
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background:#F5F6F7;display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
-          <img src="https://i.postimg.cc/4mWBZgn4/Team-cropped-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Team illustration"/>
+        <div style="display:flex;align-items:center;justify-content:center;height:180px;padding:16px;">
+          <img src="https://i.postimg.cc/pyMZjtTF/Team-cropped-PNG.png" style="max-height:100%;max-width:100%;object-fit:contain;" alt="Team illustration"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">Team</div>
