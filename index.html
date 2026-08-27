@@ -436,6 +436,170 @@
       background-position: right 12px center;
     }
 
+    /* DROPDOWN */
+    .dropdown-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .dropdown-label .req { color: #F84A4A; }
+    .dropdown-trigger {
+      width: 220px;
+      background: var(--bg);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .dropdown-trigger.open { border-color: var(--green); }
+    .dropdown-trigger svg.ic { color: var(--muted); transition: transform 0.15s; }
+    .dropdown-panel {
+      width: 220px;
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .dropdown-item {
+      padding: 9px 10px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+    .dropdown-item:hover { background: var(--bg3); }
+    .dropdown-item.active-state { background: var(--bg3); font-weight: 600; }
+    .dropdown-item.selected svg.ic { color: var(--green); flex-shrink: 0; }
+
+    /* TABLE */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+    }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .data-table thead th {
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 12px 16px;
+      background: var(--bg2);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      white-space: nowrap;
+    }
+    .data-table tbody td {
+      padding: 12px 16px;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      white-space: nowrap;
+    }
+    .data-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+    .data-table tbody tr:hover { background: var(--bg3); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .table-dots-btn {
+      width: 28px; height: 28px;
+      border-radius: var(--radius);
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+      font-size: 16px;
+    }
+    .table-dots-btn:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+
+    /* TOOLTIP */
+    .tooltip-wrap { position: relative; display: inline-flex; }
+    .tooltip-bubble {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: var(--bg3);
+      color: var(--white);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s, transform 0.15s;
+      z-index: 5;
+    }
+    .tooltip-bubble::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--bg3);
+    }
+    .tooltip-wrap:hover .tooltip-bubble { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .tooltip-bubble-bottom { bottom: auto; top: calc(100% + 8px); transform: translateX(-50%) translateY(-4px); }
+    .tooltip-bubble-bottom::after {
+      top: auto; bottom: 100%;
+      border-top-color: transparent;
+      border-bottom-color: var(--bg3);
+    }
+    .tooltip-wrap:hover .tooltip-bubble-bottom { transform: translateX(-50%) translateY(0); }
+
+    /* LOGIN / REGISTRATION */
+    .auth-block-bg {
+      width: 100%;
+      min-height: 480px;
+      border-radius: var(--radius);
+      background-color: var(--bg);
+      background-image: radial-gradient(rgba(0,148,99,0.35) 1px, transparent 1px);
+      background-size: 22px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 360px;
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .auth-card-logo { display: flex; justify-content: center; margin-bottom: 24px; }
+    .auth-field { margin-bottom: 14px; }
+    .auth-field label { font-size: 12px; color: var(--muted); margin-bottom: 6px; display: block; }
+    .auth-forgot { display: flex; justify-content: flex-end; margin: -6px 0 18px; }
+    .auth-forgot a { font-size: 12px; color: var(--purple); text-decoration: none; }
+    .auth-footer { text-align: center; font-size: 13px; color: var(--muted); margin-top: 20px; }
+    .auth-footer a { color: var(--green); text-decoration: none; font-weight: 600; }
+
     /* BADGE / TAGS */
     .badge {
       display: inline-flex; align-items: center; gap: 5px;
@@ -494,16 +658,38 @@
 
     /* ALERT */
     .alert {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 12px 14px;
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 16px 18px;
       border-radius: var(--radius);
       font-size: 13px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-    .alert-green { background: rgba(0,148,99,0.1); border: 1px solid rgba(0,148,99,0.25); color: #009463; }
-    .alert-amber { background: rgba(234,137,29,0.08); border: 1px solid rgba(234,137,29,0.2); color: #EA891D; }
-    .alert-red { background: rgba(248,74,74,0.08); border: 1px solid rgba(248,74,74,0.2); color: #F84A4A; }
+    .alert-icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .alert-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .alert-desc { color: var(--muted); line-height: 1.6; }
+    .alert-neutral { background: var(--bg2); border: 1px solid rgba(255,255,255,0.1); }
+    .alert-neutral .alert-icon { background: var(--muted); }
+    .alert-neutral .alert-title { color: var(--white); }
+    .alert-info { background: rgba(77,181,250,0.1); border: 1px solid rgba(77,181,250,0.3); }
+    .alert-info .alert-icon { background: #4DB5FA; }
+    .alert-info .alert-title { color: #4DB5FA; }
+    .alert-green { background: rgba(0,148,99,0.1); border: 1px solid rgba(0,148,99,0.3); }
+    .alert-green .alert-icon { background: #009463; }
+    .alert-green .alert-title { color: #009463; }
+    .alert-amber { background: rgba(234,137,29,0.1); border: 1px solid rgba(234,137,29,0.3); }
+    .alert-amber .alert-icon { background: #EA891D; }
+    .alert-amber .alert-title { color: #EA891D; }
+    .alert-red { background: rgba(248,74,74,0.1); border: 1px solid rgba(248,74,74,0.3); }
+    .alert-red .alert-icon { background: #F84A4A; }
+    .alert-red .alert-title { color: #F84A4A; }
 
     /* TABLE */
     table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -731,6 +917,176 @@
     }
     .nav-download:hover { color: var(--white); border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.03); }
 
+
+    /* LOGIN / REGISTRATION BLOCK */
+    .login-page-bg {
+      position: relative;
+      width: 100%;
+      min-height: 640px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background-color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .login-page-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .login-page-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(14,22,33,0.72) 100%);
+      pointer-events: none;
+    }
+
+
+.login-card{
+  position:relative;z-index:1;width:540px;
+  background:var(--bg2);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);overflow:hidden;
+}
+
+/* HEADER */
+.login-card-top{
+  background:var(--bg3);border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:20px 32px;display:flex;align-items:center;
+}
+
+/* BODY */
+.login-card-body{padding:36px 32px 28px}
+.login-form-eyebrow{
+  font-family:var(--mono);font-size:9px;color:var(--purple);
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;
+}
+.login-form-title{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
+.login-form-desc{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+
+/* FORM */
+.login-form-group{margin-bottom:4px}
+.login-form-label{
+  display:block;font-family:var(--mono);font-size:10px;color:var(--muted);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;
+}
+.login-form-input{
+  width:100%;background:var(--bg);
+  border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);
+  color:var(--white);font-family:var(--font);font-size:14px;
+  padding:11px 14px;outline:none;transition:border-color .15s;
+}
+.login-form-input::placeholder{color:rgba(134,151,168,0.5)}
+.login-form-input:focus{border-color:var(--green)}
+.login-form-input.login-input-error{border-color:#F84A4A!important}
+.login-code-input{font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;font-size:14px}
+
+.login-error-msg{
+  font-family:var(--mono);font-size:10px;color:#F84A4A;
+  margin-top:7px;display:none;align-items:center;gap:5px;
+}
+.login-error-msg.show{display:flex}
+.login-form-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:7px}
+
+/* code validating indicator */
+.login-code-status{
+  position:relative;
+}
+.login-code-status .login-spinner{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:14px;height:14px;border:2px solid rgba(255,255,255,0.1);
+  border-top-color:var(--green);border-radius:50%;
+  animation:loginSpin .6s linear infinite;display:none;
+}
+@keyframes loginSpin{to{transform:translateY(-50%) rotate(360deg)}}
+.login-code-status.checking .login-spinner{display:block}
+
+.login-btn-primary{
+  width:100%;background:var(--green);border:none;border-radius:var(--radius);
+  color:#fff;font-family:var(--mono);font-size:13px;font-weight:500;
+  padding:13px;cursor:pointer;transition:opacity .15s;
+  letter-spacing:.05em;margin-top:14px;
+}
+.login-btn-primary:hover{opacity:.88}
+.login-btn-primary:active{opacity:.76}
+.login-btn-primary:disabled{opacity:.4;cursor:default}
+
+/* OR */
+.login-or-divider{
+  display:flex;align-items:center;gap:14px;margin:26px 0;
+}
+.login-or-line{flex:1;height:1px;background:rgba(255,255,255,0.07)}
+.login-or-text{font-family:var(--mono);font-size:10px;color:rgba(134,151,168,0.4);letter-spacing:.12em}
+
+/* SUCCESS */
+.login-success-msg{
+  font-family:var(--mono);font-size:11px;color:var(--green);
+  background:rgba(0,148,99,0.09);border:1px solid rgba(0,148,99,0.2);
+  border-radius:var(--radius);padding:10px 13px;
+  margin-top:12px;display:none;align-items:center;gap:8px;
+}
+.login-success-msg.show{display:flex}
+
+/* NEW ACCOUNT */
+.login-new-account{
+  margin-top:24px;text-align:center;
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+}
+.login-new-account a{color:var(--green);text-decoration:none}
+.login-new-account a:hover{text-decoration:underline}
+
+/* FOOTER */
+.login-card-footer{
+  padding:14px 32px;border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg3);
+}
+.login-footer-left{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.login-footer-left span{color:rgba(134,151,168,0.4)}
+.login-footer-right{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:rgba(134,151,168,0.5)}
+
+/* ── MODAL ── */
+.login-modal-overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(10,16,24,0.85);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.login-modal-overlay.open{opacity:1;pointer-events:all}
+.login-modal{
+  width:400px;background:var(--bg2);
+  border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);
+  overflow:hidden;
+  transform:translateY(12px);transition:transform .2s;
+}
+.login-modal-overlay.open .login-modal{transform:translateY(0)}
+.login-modal-top{
+  background:var(--bg3);border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:18px 24px;display:flex;align-items:center;justify-content:space-between;
+}
+.login-modal-title{font-size:14px;font-weight:600;color:var(--white)}
+.login-modal-close{
+  background:none;border:none;cursor:pointer;color:var(--muted);
+  display:flex;align-items:center;padding:2px;transition:color .15s;
+}
+.login-modal-close:hover{color:var(--white)}
+.login-modal-body{padding:24px}
+.login-modal-desc{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.login-modal-success{
+  font-family:var(--mono);font-size:11px;color:var(--green);
+  background:rgba(0,148,99,0.09);border:1px solid rgba(0,148,99,0.2);
+  border-radius:var(--radius);padding:12px 14px;
+  display:none;align-items:center;gap:8px;margin-top:14px;
+}
+.login-modal-success.show{display:flex}
+
   </style>
 <link rel="icon" type="image/png" href="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png"/>
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
@@ -757,9 +1113,14 @@
   <a href="#buttons">Buttons</a>
   <a href="#icon-buttons">Buttons with icons</a>
   <a href="#inputs">Inputs &amp; Forms</a>
+  <a href="#dropdown">Dropdown</a>
+  <a href="#dropdown-items">Dropdown items</a>
   <a href="#badges">Badges &amp; Tags</a>
   <a href="#cards">Cards &amp; Surfaces</a>
   <a href="#alerts">Alerts</a>
+  <a href="#table">Table</a>
+  <a href="#tooltip">Tooltip</a>
+  <a href="#auth">Login / Registration</a>
   <a href="#map-ui">Map UI Elements</a>
   <a href="#variables">CSS Variables</a>
   <a href="#block-crop-classification">Crop Classification</a>
@@ -902,7 +1263,7 @@
     <div class="grid-4">
       <div class="swatch">
         <div class="swatch-color" style="background:var(--bg2);display:flex;align-items:center;justify-content:center;height:80px;">
-          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:16px;height:16px;border-radius:3px;" alt="DigiFarm favicon 16px"/>
+          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:16px;height:16px;" alt="DigiFarm favicon 16px"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">16px</div>
@@ -911,7 +1272,7 @@
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:var(--bg2);display:flex;align-items:center;justify-content:center;height:80px;">
-          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:24px;height:24px;border-radius:5px;" alt="DigiFarm favicon 24px"/>
+          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:24px;height:24px;" alt="DigiFarm favicon 24px"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">24px</div>
@@ -920,7 +1281,7 @@
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:var(--bg2);display:flex;align-items:center;justify-content:center;height:80px;">
-          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:40px;height:40px;border-radius:8px;" alt="DigiFarm favicon 40px"/>
+          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:40px;height:40px;" alt="DigiFarm favicon 40px"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">40px</div>
@@ -929,7 +1290,7 @@
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:var(--bg2);display:flex;align-items:center;justify-content:center;height:80px;">
-          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:64px;height:64px;border-radius:12px;" alt="DigiFarm favicon 64px"/>
+          <img src="https://i.postimg.cc/Rh3dStK1/Favicon-Digi-Farm.png" style="width:64px;height:64px;" alt="DigiFarm favicon 64px"/>
         </div>
         <div class="swatch-info">
           <div class="swatch-name">64px</div>
@@ -1540,6 +1901,55 @@
     </div>
   </section>
 
+  <!-- DROPDOWN -->
+  <section id="dropdown">
+    <div class="section-label">Components</div>
+    <h2>Dropdown</h2>
+    <p class="section-desc">Default and expanded state.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row">
+        <div>
+          <label class="dropdown-label">Hybrid Variety<span class="req">*</span></label>
+          <div class="dropdown-trigger">
+            <span>Pioneer P2851W</span>
+            <svg class="ic" style="width:14px;height:14px;"><use href="#ic-chevron-down"></use></svg>
+          </div>
+        </div>
+        <div>
+          <label class="dropdown-label">Hybrid Variety<span class="req">*</span></label>
+          <div class="dropdown-trigger open">
+            <span>Pioneer P2851W</span>
+            <svg class="ic" style="width:14px;height:14px;transform:rotate(180deg);"><use href="#ic-chevron-down"></use></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DROPDOWN ITEMS -->
+  <section id="dropdown-items">
+    <div class="section-label">Components</div>
+    <h2>Dropdown items</h2>
+    <p class="section-desc">Option list panel used inside an expanded dropdown — default items, an active/selected item, and an item with a leading icon. Hovering any item highlights the background only, without changing weight.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="dropdown-panel">
+          <div class="dropdown-item">Option 1</div>
+          <div class="dropdown-item">Option 2</div>
+          <div class="dropdown-item active-state">Option 3</div>
+          <div class="dropdown-item selected">
+            <svg class="ic" style="width:14px;height:14px;"><use href="#ic-check"></use></svg>
+            Option 4
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BADGES -->
   <section id="badges">
     <div class="section-label">Components</div>
@@ -1619,13 +2029,360 @@
   <section id="alerts">
     <div class="section-label">Components</div>
     <h2>Alerts</h2>
-    <p class="section-desc">Inline notifications and feedback messages. Semantic color system with matching border and background tint.</p>
+    <p class="section-desc">Embedded alert, five semantic variants.</p>
     <hr/>
 
     <div class="card">
-      <div class="alert alert-green"><span class="alert-icon">✓</span><span>Model processing complete. 34 field boundaries detected with 94.2% average confidence.</span></div>
-      <div class="alert alert-amber"><span class="alert-icon">⚠</span><span>Cloud coverage detected in northwest quadrant. Results may have reduced accuracy in affected area.</span></div>
-      <div class="alert alert-red"><span class="alert-icon">✕</span><span>Satellite imagery unavailable for the selected date range. Please try a different time window.</span></div>
+      <div class="alert alert-neutral">
+        <span class="alert-icon">i</span>
+        <div>
+          <div class="alert-title">No boundaries detected yet</div>
+          <div class="alert-desc">Upload satellite imagery or draw a field boundary manually to get started with analysis.</div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <span class="alert-icon">i</span>
+        <div>
+          <div class="alert-title">Analysis queued</div>
+          <div class="alert-desc">Your request is in the processing queue. This usually takes 2–5 minutes depending on field size.</div>
+        </div>
+      </div>
+      <div class="alert alert-amber">
+        <span class="alert-icon">!</span>
+        <div>
+          <div class="alert-title">Cloud coverage detected</div>
+          <div class="alert-desc">Cloud coverage was detected in the northwest quadrant. Results may have reduced accuracy in the affected area.</div>
+        </div>
+      </div>
+      <div class="alert alert-red">
+        <span class="alert-icon">!</span>
+        <div>
+          <div class="alert-title">Imagery unavailable</div>
+          <div class="alert-desc">Satellite imagery is unavailable for the selected date range. Please try a different time window.</div>
+        </div>
+      </div>
+      <div class="alert alert-green">
+        <span class="alert-icon">✓</span>
+        <div>
+          <div class="alert-title">Model processing complete</div>
+          <div class="alert-desc">34 field boundaries detected with 94.2% average confidence across the selected area.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section id="table">
+    <div class="section-label">Components</div>
+    <h2>Table</h2>
+    <p class="section-desc">Data-driven table with striped rows, row-hover highlight, and dividers between rows. Last column holds a row-actions menu.</p>
+    <hr/>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Crop</th>
+            <th>Area (ha)</th>
+            <th>Status</th>
+            <th>Last synced</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>North Ridge — Block A</td>
+            <td>Winter Wheat</td>
+            <td>42.6</td>
+            <td><span class="badge badge-green"><span class="badge-dot"></span>Active</span></td>
+            <td style="color:var(--muted);">2h ago</td>
+            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+          </tr>
+          <tr>
+            <td>Lower Basin — Block C</td>
+            <td>Maize</td>
+            <td>28.1</td>
+            <td><span class="badge badge-green"><span class="badge-dot"></span>Active</span></td>
+            <td style="color:var(--muted);">2h ago</td>
+            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+          </tr>
+          <tr>
+            <td>East Terrace</td>
+            <td>Soybean</td>
+            <td>15.9</td>
+            <td><span class="badge badge-amber"><span class="badge-dot"></span>Syncing</span></td>
+            <td style="color:var(--muted);">14m ago</td>
+            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+          </tr>
+          <tr>
+            <td>Hillside — Block B</td>
+            <td>Winter Wheat</td>
+            <td>33.4</td>
+            <td><span class="badge badge-purple"><span class="badge-dot"></span>Draft</span></td>
+            <td style="color:var(--muted);">1d ago</td>
+            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+          </tr>
+          <tr>
+            <td>South Flats</td>
+            <td>Sunflower</td>
+            <td>21.7</td>
+            <td><span class="badge badge-red"><span class="badge-dot"></span>Error</span></td>
+            <td style="color:var(--muted);">3d ago</td>
+            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TOOLTIP -->
+  <section id="tooltip">
+    <div class="section-label">Components</div>
+    <h2>Tooltip</h2>
+    <p class="section-desc">Contextual label shown on hover or focus. Positioned above or below the trigger, with a matching directional arrow.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="comp-label">Icon trigger, top placement</div>
+        <div class="tooltip-wrap">
+          <button class="btn-circle outlined"><svg class="ic"><use href="#ic-settings"></use></svg></button>
+          <div class="tooltip-bubble">Settings</div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Button trigger, top placement</div>
+        <div class="tooltip-wrap">
+          <button class="btn-secondary">Hover me</button>
+          <div class="tooltip-bubble">Additional context shown on hover</div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Text trigger, bottom placement</div>
+        <div class="tooltip-wrap">
+          <span style="border-bottom:1px dashed var(--muted);color:var(--white);font-size:13px;cursor:help;">Confidence score</span>
+          <div class="tooltip-bubble tooltip-bubble-bottom">Model certainty across all detected boundaries</div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Badge trigger, bottom placement</div>
+        <div class="tooltip-wrap">
+          <span class="badge badge-amber"><span class="badge-dot"></span>Syncing</span>
+          <div class="tooltip-bubble tooltip-bubble-bottom">Last attempted 14 minutes ago</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN / REGISTRATION -->
+  <section id="auth">
+    <div class="section-label">Blocks</div>
+    <h2>Login / Registration</h2>
+    <p class="section-desc">Full sign-in flow — access code or email, with a request-account modal. Matches the client-facing sign-in page.</p>
+    <hr/>
+
+    <div class="login-page-bg">
+
+
+<div class="login-card">
+  <!-- HEADER -->
+  <div class="login-card-top">
+    <img src="data:image/svg+xml,%3Csvg%20width%3D%22431%22%20height%3D%22108%22%20viewBox%3D%220%200%20431%20108%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20d%3D%22M268.295%2079.0741V25.2651H301.663V32.254H276.413V48.6489H299.272V55.6115H276.413V79.0741H268.295Z%22%20fill%3D%22%23949EA7%22/%3E%0A%3Cpath%20d%3D%22M318.432%2079.9674C315.874%2079.9674%20313.562%2079.4944%20311.495%2078.5486C309.428%2077.5852%20307.791%2076.1927%20306.582%2074.371C305.391%2072.5494%20304.795%2070.3161%20304.795%2067.6712C304.795%2065.3941%20305.233%2063.5199%20306.109%2062.0486C306.985%2060.5772%20308.167%2059.4124%20309.656%2058.5541C311.145%2057.6959%20312.809%2057.0478%20314.648%2056.6099C316.487%2056.172%20318.361%2055.8392%20320.271%2055.6115C322.688%2055.3312%20324.65%2055.1035%20326.156%2054.9284C327.662%2054.7357%20328.757%2054.4291%20329.44%2054.0088C330.123%2053.5884%20330.465%2052.9053%20330.465%2051.9594V51.7755C330.465%2049.4809%20329.817%2047.703%20328.521%2046.4419C327.242%2045.1807%20325.333%2044.5502%20322.793%2044.5502C320.148%2044.5502%20318.064%2045.1369%20316.54%2046.3105C315.033%2047.4666%20313.991%2048.754%20313.413%2050.1728L306.03%2048.4913C306.906%2046.039%20308.185%2044.0597%20309.866%2042.5534C311.565%2041.0295%20313.518%2039.926%20315.725%2039.2428C317.932%2038.5422%20320.253%2038.1919%20322.688%2038.1919C324.299%2038.1919%20326.007%2038.3846%20327.811%2038.7699C329.633%2039.1377%20331.332%2039.8209%20332.908%2040.8193C334.502%2041.8177%20335.807%2043.2452%20336.823%2045.1019C337.839%2046.9411%20338.347%2049.332%20338.347%2052.2747V79.0741H330.675V73.5565H330.36C329.852%2074.5725%20329.09%2075.5709%20328.074%2076.5518C327.058%2077.5326%20325.753%2078.3471%20324.159%2078.9952C322.565%2079.6433%20320.656%2079.9674%20318.432%2079.9674ZM320.139%2073.6616C322.311%2073.6616%20324.168%2073.2325%20325.709%2072.3742C327.268%2071.5159%20328.451%2070.3949%20329.256%2069.0112C330.08%2067.6099%20330.491%2066.1123%20330.491%2064.5183V59.3161C330.211%2059.5963%20329.668%2059.8591%20328.862%2060.1043C328.074%2060.332%20327.172%2060.5334%20326.156%2060.7086C325.14%2060.8663%20324.15%2061.0151%20323.187%2061.1553C322.224%2061.2779%20321.418%2061.383%20320.77%2061.4705C319.246%2061.6632%20317.853%2061.9873%20316.592%2062.4427C315.349%2062.8981%20314.35%2063.5549%20313.597%2064.4132C312.861%2065.254%20312.494%2066.375%20312.494%2067.7763C312.494%2069.7206%20313.212%2071.1919%20314.648%2072.1903C316.084%2073.1712%20317.915%2073.6616%20320.139%2073.6616Z%22%20fill%3D%22%23949EA7%22/%3E%0A%3Cpath%20d%3D%22M348.024%2079.0741V38.7174H355.617V45.1282H356.037C356.773%2042.9562%20358.069%2041.2484%20359.926%2040.0048C361.8%2038.7436%20363.919%2038.1131%20366.284%2038.1131C366.774%2038.1131%20367.352%2038.1306%20368.018%2038.1656C368.701%2038.2006%20369.235%2038.2444%20369.621%2038.297V45.8113C369.305%2045.7237%20368.745%2045.6274%20367.939%2045.5223C367.133%2045.3997%20366.328%2045.3384%20365.522%2045.3384C363.665%2045.3384%20362.01%2045.7325%20360.556%2046.5207C359.12%2047.2914%20357.981%2048.3686%20357.141%2049.7524C356.3%2051.1186%20355.879%2052.6776%20355.879%2054.4291V79.0741H348.024Z%22%20fill%3D%22%23949EA7%22/%3E%0A%3Cpath%20d%3D%22M375.632%2079.0741V38.7174H383.173V45.2858H383.672C384.513%2043.0613%20385.888%2041.3272%20387.797%2040.0836C389.706%2038.8225%20391.992%2038.1919%20394.654%2038.1919C397.352%2038.1919%20399.611%2038.8225%20401.433%2040.0836C403.272%2041.3448%20404.63%2043.0788%20405.505%2045.2858H405.926C406.889%2043.1314%20408.422%2041.4148%20410.524%2040.1362C412.626%2038.84%20415.13%2038.1919%20418.038%2038.1919C421.699%2038.1919%20424.685%2039.3392%20426.997%2041.6338C429.327%2043.9284%20430.492%2047.3877%20430.492%2052.012V79.0741H422.636V52.7476C422.636%2050.0151%20421.892%2048.0358%20420.403%2046.8097C418.914%2045.5836%20417.136%2044.9706%20415.069%2044.9706C412.512%2044.9706%20410.524%2045.7588%20409.105%2047.3352C407.686%2048.8941%20406.977%2050.8997%20406.977%2053.3519V79.0741H399.147V52.2484C399.147%2050.0589%20398.464%2048.2986%20397.098%2046.9674C395.732%2045.6362%20393.954%2044.9706%20391.764%2044.9706C390.275%2044.9706%20388.9%2045.3647%20387.639%2046.1529C386.396%2046.9236%20385.388%2048.0008%20384.618%2049.3846C383.864%2050.7683%20383.488%2052.371%20383.488%2054.1927V79.0741H375.632Z%22%20fill%3D%22%23949EA7%22/%3E%0A%3Cpath%20d%3D%22M146.726%2079.0654H129.306V25.2565H147.277C152.55%2025.2565%20157.078%2026.3337%20160.861%2028.4882C164.644%2030.6251%20167.543%2033.6992%20169.558%2037.7103C171.589%2041.704%20172.605%2046.4946%20172.605%2052.0821C172.605%2057.6872%20171.581%2062.5041%20169.531%2066.5328C167.499%2070.5614%20164.557%2073.6618%20160.703%2075.8337C156.85%2077.9882%20152.191%2079.0654%20146.726%2079.0654ZM137.425%2071.9715H146.279C150.378%2071.9715%20153.785%2071.2008%20156.499%2069.6594C159.214%2068.1005%20161.246%2065.8497%20162.595%2062.907C163.944%2059.9468%20164.618%2056.3385%20164.618%2052.0821C164.618%2047.8608%20163.944%2044.2788%20162.595%2041.3361C161.264%2038.3935%20159.276%2036.1602%20156.631%2034.6363C153.986%2033.1124%20150.702%2032.3505%20146.778%2032.3505H137.425V71.9715Z%22%20fill%3D%22%23009463%22/%3E%0A%3Cpath%20d%3D%22M182.071%2079.0654V38.7087H189.926V79.0654H182.071ZM186.038%2032.4818C184.672%2032.4818%20183.498%2032.0264%20182.517%2031.1156C181.554%2030.1872%20181.072%2029.0837%20181.072%2027.8051C181.072%2026.5089%20181.554%2025.4054%20182.517%2024.4946C183.498%2023.5662%20184.672%2023.1021%20186.038%2023.1021C187.404%2023.1021%20188.569%2023.5662%20189.532%2024.4946C190.513%2025.4054%20191.004%2026.5089%20191.004%2027.8051C191.004%2029.0837%20190.513%2030.1872%20189.532%2031.1156C188.569%2032.0264%20187.404%2032.4818%20186.038%2032.4818Z%22%20fill%3D%22%23009463%22/%3E%0A%3Cpath%20d%3D%22M217.415%2095.0399C214.21%2095.0399%20211.451%2094.6196%20209.139%2093.7788C206.845%2092.938%20204.97%2091.8258%20203.517%2090.442C202.063%2089.0583%20200.977%2087.5431%20200.259%2085.8966L207.011%2083.1116C207.484%2083.8823%20208.115%2084.6968%20208.903%2085.5551C209.708%2086.4309%20210.794%2087.1753%20212.161%2087.7884C213.544%2088.4014%20215.322%2088.7079%20217.494%2088.7079C220.472%2088.7079%20222.933%2087.981%20224.877%2086.5272C226.822%2085.0909%20227.794%2082.7963%20227.794%2079.6434V71.7087H227.294C226.822%2072.567%20226.138%2073.5216%20225.245%2074.5726C224.369%2075.6235%20223.161%2076.5344%20221.619%2077.3051C220.078%2078.0758%20218.072%2078.4611%20215.603%2078.4611C212.415%2078.4611%20209.542%2077.7167%20206.985%2076.2278C204.445%2074.7215%20202.431%2072.5057%20200.942%2069.5805C199.47%2066.6379%20198.735%2063.0208%20198.735%2058.7294C198.735%2054.438%20199.462%2050.7597%20200.915%2047.6944C202.387%2044.6291%20204.401%2042.282%20206.958%2040.653C209.516%2039.0065%20212.415%2038.1833%20215.655%2038.1833C218.16%2038.1833%20220.183%2038.6036%20221.724%2039.4444C223.266%2040.2677%20224.466%2041.231%20225.324%2042.3345C226.2%2043.438%20226.874%2044.4102%20227.347%2045.2509H227.925V38.7087H235.623V79.9587C235.623%2083.4269%20234.818%2086.2732%20233.206%2088.4977C231.595%2090.7223%20229.414%2092.3688%20226.664%2093.4372C223.931%2094.5057%20220.849%2095.0399%20217.415%2095.0399ZM217.337%2071.9452C219.596%2071.9452%20221.505%2071.4197%20223.064%2070.3688C224.641%2069.3003%20225.832%2067.7764%20226.638%2065.7971C227.461%2063.8003%20227.873%2061.4094%20227.873%2058.6243C227.873%2055.9094%20227.47%2053.5185%20226.664%2051.4516C225.858%2049.3847%20224.676%2047.7732%20223.117%2046.6172C221.558%2045.4436%20219.631%2044.8568%20217.337%2044.8568C214.972%2044.8568%20213.001%2045.4699%20211.425%2046.696C209.849%2047.9046%20208.658%2049.5511%20207.852%2051.6355C207.064%2053.7199%20206.669%2056.0495%20206.669%2058.6243C206.669%2061.2692%20207.072%2063.5901%20207.878%2065.5869C208.684%2067.5837%20209.875%2069.1427%20211.451%2070.2637C213.045%2071.3847%20215.007%2071.9452%20217.337%2071.9452Z%22%20fill%3D%22%23009463%22/%3E%0A%3Cpath%20d%3D%22M246.159%2079.0654V38.7087H254.015V79.0654H246.159ZM250.126%2032.4818C248.76%2032.4818%20247.587%2032.0264%20246.606%2031.1156C245.642%2030.1872%20245.161%2029.0837%20245.161%2027.8051C245.161%2026.5089%20245.642%2025.4054%20246.606%2024.4946C247.587%2023.5662%20248.76%2023.1021%20250.126%2023.1021C251.493%2023.1021%20252.658%2023.5662%20253.621%2024.4946C254.602%2025.4054%20255.092%2026.5089%20255.092%2027.8051C255.092%2029.0837%20254.602%2030.1872%20253.621%2031.1156C252.658%2032.0264%20251.493%2032.4818%20250.126%2032.4818Z%22%20fill%3D%22%23009463%22/%3E%0A%3Crect%20x%3D%220.0580139%22%20width%3D%22108%22%20height%3D%22108%22%20fill%3D%22%23009463%22/%3E%0A%3Cpath%20d%3D%22M27.0921%2021.1278C37.4479%2021.131%2047.8462%2020.844%2058.1976%2021.1249C60.4031%2021.1847%2062.6955%2021.3483%2064.8675%2021.7763C66.5852%2022.1147%2068.2856%2022.7958%2069.9066%2023.4403C71.8263%2024.2035%2073.6253%2024.9833%2075.3499%2026.1151C76.0751%2026.5911%2076.7991%2027.0709%2077.5062%2027.5731C78.033%2027.9473%2078.5601%2028.3292%2079.0384%2028.7616C80.1918%2029.8042%2081.3395%2030.8553%2082.4427%2031.9501C82.9902%2032.4934%2083.4552%2033.1252%2083.9203%2033.745C84.5693%2034.61%2085.2042%2035.4876%2085.808%2036.3847C86.6833%2037.6852%2087.4501%2039.0494%2088.0804%2040.4882C88.7472%2042.01%2089.3558%2043.4134%2089.7679%2045.0194C90.3292%2047.207%2090.7293%2049.2229%2091.0453%2051.4472C91.3189%2053.3737%2091.2625%2055.3105%2091.2406%2057.244C91.2289%2058.2755%2091.1423%2059.3097%2091.0296%2060.3358C90.9364%2061.1843%2090.766%2062.0256%2090.6097%2062.8661C90.485%2063.537%2090.3751%2064.2161%2090.1781%2064.8671C89.8682%2065.8907%2089.4571%2066.8838%2089.1497%2067.9081C87.5716%2073.1685%2083.9976%2078.0652%2079.848%2081.5761C77.54%2083.5288%2075.0545%2085.0355%2072.4076%2086.4901C68.4%2088.6923%2063.7014%2089.397%2059.224%2089.8495C55.2705%2090.249%2051.3154%2089.9542%2047.3626%2090.0194C40.4316%2090.1338%2033.4719%2090.1373%2026.5404%2090.0126C25.741%2089.9982%2024.9725%2089.7114%2024.2308%2089.2997C23.4388%2088.8601%2023.0381%2088.1761%2022.6234%2087.4638C22.5199%2087.286%2022.4945%2087.0622%2022.391%2086.8563C22.3485%2065.968%2022.3486%2045.083%2022.391%2024.1444C22.3954%2021.979%2023.9383%2021.1278%2027.0921%2021.1278ZM82.4056%2072.6141C79.0364%2071.7942%2073.9153%2072.3715%2070.7455%2073.6884C69.7488%2074.1024%2068.6915%2074.3713%2067.6937%2074.7831C66.7709%2075.1639%2065.8641%2075.603%2065.0013%2076.1044C60.7274%2078.588%2057.7821%2082.0425%2054.9447%2085.9686C56.7004%2086.171%2058.5528%2086.0037%2060.3197%2086.0038C62.9305%2086.004%2066.0971%2085.0052%2068.5023%2084.0507C69.7336%2083.562%2071.0336%2082.9916%2072.1624%2082.2899C73.4612%2081.4827%2074.7818%2080.6165%2076.0042%2079.6972C76.5814%2079.2631%2077.1158%2078.7717%2077.6956%2078.2284C79.4792%2076.5877%2081.0725%2074.7879%2082.4056%2072.6141ZM42.2347%2074.33C37.0927%2072.2035%2031.7704%2071.3718%2026.1644%2072.6005V86.0028C29.4437%2086.0028%2032.6397%2086.0061%2035.8353%2085.9911C35.9906%2085.9904%2036.2207%2085.863%2036.2865%2085.7304C37.1652%2083.9587%2037.7957%2082.0549%2038.6732%2080.2704C39.358%2078.8779%2040.141%2077.6557%2040.9867%2076.3573C41.4038%2075.7168%2041.7898%2075.0557%2042.2347%2074.33ZM77.7396%2058.868C72.9252%2059.2335%2067.9634%2060.0684%2063.5345%2062.1024C62.2942%2062.6721%2061.0839%2063.3112%2059.8792%2063.955C58.9477%2064.4527%2058.0247%2064.9717%2057.1331%2065.537C56.383%2066.0126%2055.6837%2066.5689%2054.9622%2067.0897C54.1924%2067.6454%2053.4077%2068.1824%2052.6576%2068.7636C52.0735%2069.216%2051.48%2069.6756%2050.9828%2070.2167C49.3168%2072.0297%2047.6972%2073.8296%2046.1009%2075.7108C45.0631%2076.9338%2044.2282%2078.2679%2043.4281%2079.6561C42.9655%2080.4586%2042.4895%2081.2546%2042.0589%2082.0741C41.6161%2082.9168%2041.2051%2083.7773%2040.8119%2084.6444C40.6227%2085.0615%2040.5063%2085.512%2040.3382%2086.0028C43.7138%2086.0028%2046.9799%2086.0066%2050.2455%2085.9891C50.4106%2085.9883%2050.6476%2085.8387%2050.7269%2085.6913C51.8683%2083.5585%2053.1357%2081.1891%2054.8499%2079.4696C59.342%2074.9637%2064.0777%2071.5786%2070.2201%2069.6962C74.2076%2068.4742%2078.7688%2068.0201%2082.8968%2068.6395C83.4583%2068.7238%2084.0179%2068.8219%2084.6742%2068.9305C85.2104%2067.2867%2085.7036%2065.7298%2086.2269%2064.1835C86.7609%2062.6053%2086.9598%2060.9678%2087.2054%2059.4013C86.5853%2059.2857%2086.0413%2059.1467%2085.4896%2059.0907C84.4979%2058.9901%2083.5019%2058.8991%2082.5062%2058.8768C80.953%2058.8421%2079.3984%2058.8681%2077.7396%2058.868ZM49.8031%2079.9628C50.5054%2079.963%2051.0746%2080.5328%2051.0746%2081.2352C51.0744%2081.9375%2050.5054%2082.5065%2049.8031%2082.5067C49.1006%2082.5067%2048.5307%2081.9377%2048.5306%2081.2352C48.5306%2080.5327%2049.1005%2079.9628%2049.8031%2079.9628ZM68.6703%2075.7235C69.6068%2075.7235%2070.3664%2076.4823%2070.3665%2077.4188C70.3665%2078.3555%2069.607%2079.1151%2068.6703%2079.1151C67.7337%2079.1149%2066.9749%2078.3554%2066.9749%2077.4188C66.9751%2076.4824%2067.7338%2075.7237%2068.6703%2075.7235ZM30.9339%2076.1464C31.6365%2076.1464%2032.2064%2076.7163%2032.2064%2077.4188C32.2063%2078.1213%2031.6364%2078.6903%2030.9339%2078.6903C30.2317%2078.6901%2029.6626%2078.1211%2029.6624%2077.4188C29.6624%2076.7164%2030.2316%2076.1466%2030.9339%2076.1464ZM54.2552%2069.3622C55.1918%2069.3623%2055.9515%2070.1219%2055.9515%2071.0585C55.9514%2071.995%2055.1918%2072.7546%2054.2552%2072.7548C53.3186%2072.7548%2052.559%2071.9951%2052.5589%2071.0585C52.5589%2070.1218%2053.3185%2069.3622%2054.2552%2069.3622ZM26.1986%2024.9472V68.4081C27.1726%2068.408%2028.1328%2068.2265%2029.1068%2068.2059C33.1953%2068.1198%2036.9129%2068.347%2040.8265%2069.6776C41.7311%2069.9852%2042.6337%2070.2978%2043.5492%2070.5712C43.5492%2070.2524%2043.5492%2070.0595%2043.5492%2069.8671C43.5491%2066.4754%2043.5281%2063.0835%2043.5658%2059.6923C43.6004%2056.5762%2044.978%2053.1745%2046.8607%2050.6893C47.681%2049.6066%2048.5637%2048.6225%2049.6693%2047.8388C50.3616%2047.348%2051.0334%2046.8597%2051.8031%2046.495C53.1145%2045.8736%2054.3323%2045.4158%2055.7376%2045.0731C57.0717%2044.7479%2058.2439%2044.4825%2059.6361%2044.6229C59.8015%2044.6396%2060.0647%2044.9848%2060.0599%2045.1737C60.0373%2046.0307%2059.9906%2046.8955%2059.8431%2047.7382C59.1797%2051.5279%2056.929%2055.3513%2053.8861%2057.7001C52.858%2058.4936%2051.6633%2058.9731%2050.4779%2059.5077C49.6796%2059.8677%2046.7176%2060.2213%2046.723%2061.2255C46.736%2063.6632%2046.7291%2066.1011%2046.7318%2068.5389C46.7319%2068.6663%2046.7605%2068.7938%2046.7826%2068.9735C49.106%2066.9459%2051.2337%2064.8799%2053.7757%2063.1317C55.3358%2062.0589%2056.8511%2061.1257%2058.5638%2060.3055C60.1716%2059.5356%2061.7663%2058.7317%2063.4095%2058.0448C66.0165%2056.955%2068.7942%2056.2957%2071.5453%2055.6972C72.3804%2055.5155%2073.2266%2055.368%2074.0755%2055.2714C75.0492%2055.1606%2076.0307%2055.0843%2077.0101%2055.0604C78.4267%2055.0259%2079.8455%2055.0247%2081.2621%2055.0595C83.378%2055.1113%2085.4497%2055.2173%2087.5433%2055.5194C87.1392%2053.5032%2087.3785%2051.4086%2086.8324%2049.4218C86.449%2048.0267%2086.1791%2046.6089%2085.7357%2045.2245C85.1359%2043.3519%2084.2964%2041.7211%2083.4124%2039.9725C82.6786%2038.5208%2081.6833%2037.2438%2080.7044%2035.9628C80.0389%2035.0918%2079.2497%2034.3146%2078.4632%2033.4413C77.3195%2032.325%2076.0504%2031.3683%2074.7552%2030.4296C74.0445%2029.9145%2073.3124%2029.4205%2072.5521%2028.9833C71.652%2028.4658%2070.7127%2028.015%2069.7865%2027.5438C68.4265%2026.852%2066.9442%2026.428%2065.4818%2026.0116C63.8367%2025.5432%2061.8562%2024.9687%2060.1361%2024.9647C48.8236%2024.939%2037.511%2024.9472%2026.1986%2024.9472ZM79.2718%2060.8827C80.2084%2060.8829%2080.9671%2061.6424%2080.9671%2062.579C80.967%2063.5154%2080.2083%2064.2741%2079.2718%2064.2743C78.3352%2064.2743%2077.5757%2063.5155%2077.5755%2062.579C77.5755%2061.6423%2078.3351%2060.8827%2079.2718%2060.8827ZM69.307%2061.0936C70.0095%2061.0936%2070.5794%2061.6636%2070.5794%2062.3661C70.5794%2063.0686%2070.0095%2063.6386%2069.307%2063.6386C68.6045%2063.6384%2068.0355%2063.0686%2068.0355%2062.3661C68.0355%2061.6636%2068.6046%2061.0937%2069.307%2061.0936ZM32.6986%2043.6014C37.0362%2043.7228%2040.5725%2047.4123%2041.5892%2051.4159C41.7637%2052.1032%2041.7969%2052.8323%2041.8402%2053.5458C42.15%2058.672%2024.8958%2043.3836%2032.6986%2043.6014ZM43.681%2028.9628C44.4764%2027.9441%2045.17%2028.1538%2045.8099%2029.0106C50.3991%2035.1571%2049.9514%2042.0039%2045.43%2048.2177C45.1507%2048.601%2044.2945%2048.5841%2044.0111%2048.2313C39.3117%2042.3799%2038.9656%2035.0033%2043.681%2028.9628ZM58.6673%2029.2587C60.0854%2028.4453%2064.4016%2030.135%2066.183%2030.9364C71.9786%2033.5437%2077.8232%2037.6085%2080.3734%2043.6854C80.6692%2044.3901%2081.1847%2045.0658%2081.0902%2045.9423C80.9302%2047.4238%2078.5368%2048.4396%2077.6312%2047.0204C72.806%2038.9395%2071.4255%2036.5582%2063.2621%2034.0585C62.2382%2033.7449%2054.2182%2031.1043%2058.6673%2029.2587Z%22%20fill%3D%22white%22/%3E%0A%3C/svg%3E%0A" style="height:28px;width:auto;" alt="DigiFarm"/>
+  </div>
+
+
+  <!-- BODY -->
+  <div class="login-card-body">
+    <div class="login-form-eyebrow">Secure Access</div>
+    <div class="login-form-title">Client Dashboard</div>
+    <div class="login-form-desc">Sign in with your account credentials to access your dashboard.</div>
+
+    <!-- ACCESS CODE (first) -->
+    <div class="login-form-group">
+      <label class="login-form-label" for="login-access-code">Access code</label>
+      <div class="login-code-status" id="login-code-wrap">
+        <input class="login-form-input login-code-input" id="login-access-code" type="text"
+               placeholder="XXXX-XXXX-XXXX" maxlength="14" autocomplete="off"
+               oninput="loginFormatCode(this)"/>
+        <div class="login-spinner"></div>
+      </div>
+      <div class="login-error-msg" id="login-code-err">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Invalid or expired access code.
+      </div>
+      <div class="login-form-hint">Access codes are provided by the DigiFarm team.</div>
+    </div>
+
+    <!-- OR -->
+    <div class="login-or-divider">
+      <div class="login-or-line"></div>
+      <div class="login-or-text">OR</div>
+      <div class="login-or-line"></div>
+    </div>
+
+    <!-- EMAIL (second) -->
+    <div class="login-form-group">
+      <label class="login-form-label" for="login-email">Email address</label>
+      <input class="login-form-input" id="login-email" type="email" placeholder="you@example.com"
+             autocomplete="email" oninput="loginClearError('login-email-err','login-email')"/>
+      <div class="login-error-msg" id="login-email-err">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        This email is not in our database.
+      </div>
+    </div>
+    <button class="login-btn-primary" id="login-btn-email" onclick="loginHandleEmail()">Continue</button>
+    <div class="login-success-msg" id="login-email-success">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Check your inbox — a sign-in link has been sent.
+    </div>
+
+    <!-- NEW ACCOUNT -->
+    <div class="login-new-account">
+      New to DigiFarm? <a href="#" onclick="loginOpenModal(event)">Request an account</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="login-card-footer">
+    <div class="login-footer-left">© 2026 DigiFarm <span>·</span> v2.4.1</div>
+    <div class="login-footer-right">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      SSL secured
+    </div>
+  </div>
+</div>
+
+<!-- REQUEST ACCOUNT MODAL -->
+<div class="login-modal-overlay" id="login-modal-overlay" onclick="loginHandleOverlayClick(event)">
+  <div class="login-modal">
+    <div class="login-modal-top">
+      <div class="login-modal-title">Request an account</div>
+      <button class="login-modal-close" onclick="loginCloseModal()" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="login-modal-body">
+      <div class="login-modal-desc">Leave your email address and the DigiFarm team will get back to you with access details.</div>
+      <div class="login-form-group">
+        <label class="login-form-label" for="login-req-email">Email address</label>
+        <input class="login-form-input" id="login-req-email" type="email" placeholder="you@example.com"
+               autocomplete="email" oninput="loginClearError('login-req-email-err','login-req-email')"/>
+        <div class="login-error-msg" id="login-req-email-err">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Please enter a valid email address.
+        </div>
+      </div>
+      <button class="login-btn-primary" id="login-btn-req" onclick="loginHandleRequest()" style="margin-top:8px">Continue</button>
+      <div class="login-modal-success" id="login-req-success">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Request sent! The DigiFarm team will be in touch soon.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── Access code: auto-redirect on full entry ── */
+let loginCodeTimer=null;
+function loginFormatCode(input){
+  let raw=input.value.replace(/[^A-Za-z0-9]/g,'').toUpperCase().slice(0,12);
+  let out='';
+  for(let i=0;i<raw.length;i++){if(i>0&&i%4===0)out+='-';out+=raw[i];}
+  input.value=out;
+
+  // clear previous state
+  loginClearError('login-code-err','login-access-code');
+  clearTimeout(loginCodeTimer);
+
+  if(raw.length===12){
+    // show login-spinner
+    document.getElementById('login-code-wrap').classList.add('checking');
+    loginCodeTimer=setTimeout(()=>{
+      document.getElementById('login-code-wrap').classList.remove('checking');
+      // demo: codes starting with DF pass
+      if(raw.startsWith('DF')){
+        input.style.borderColor='var(--green)';
+        input.disabled=true;
+        // redirect simulation
+        setTimeout(()=>{ alert('Redirecting to dashboard…'); input.disabled=false; input.style.borderColor=''; input.value=''; },400);
+      } else {
+        loginShowError('login-code-err','login-access-code');
+      }
+    },800);
+  }
+}
+
+/* ── Email ── */
+function loginHandleEmail(){
+  const val=document.getElementById('login-email').value.trim();
+  const btn=document.getElementById('login-btn-email');
+  const success=document.getElementById('login-email-success');
+  loginClearError('login-email-err','login-email');
+  success.classList.remove('show');
+  if(!val||!val.includes('@')){loginShowError('login-email-err','login-email');return;}
+  btn.disabled=true;btn.textContent='Checking…';
+  setTimeout(()=>{
+    btn.disabled=false;btn.textContent='Continue';
+    if(val.endsWith('@digifarm.io')||val.endsWith('@eni.com')){
+      success.classList.add('show');
+    } else {
+      loginShowError('login-email-err','login-email');
+    }
+  },900);
+}
+
+/* ── Modal ── */
+function loginOpenModal(e){
+  e.preventDefault();
+  document.getElementById('login-modal-overlay').classList.add('open');
+  setTimeout(()=>document.getElementById('login-req-email').focus(),200);
+}
+function loginCloseModal(){
+  document.getElementById('login-modal-overlay').classList.remove('open');
+  // reset login-modal state
+  loginClearError('login-req-email-err','login-req-email');
+  document.getElementById('login-req-email').value='';
+  document.getElementById('login-req-success').classList.remove('show');
+  document.getElementById('login-btn-req').disabled=false;
+  document.getElementById('login-btn-req').textContent='Continue';
+}
+function loginHandleOverlayClick(e){
+  if(e.target===document.getElementById('login-modal-overlay')) loginCloseModal();
+}
+function loginHandleRequest(){
+  const val=document.getElementById('login-req-email').value.trim();
+  const btn=document.getElementById('login-btn-req');
+  const success=document.getElementById('login-req-success');
+  loginClearError('login-req-email-err','login-req-email');
+  if(!val||!val.includes('@')){loginShowError('login-req-email-err','login-req-email');return;}
+  btn.disabled=true;btn.textContent='Sending…';
+  setTimeout(()=>{
+    btn.style.display='none';
+    success.classList.add('show');
+  },900);
+}
+
+/* ── Helpers ── */
+function loginShowError(errId,inputId){
+  document.getElementById(errId).classList.add('show');
+  document.getElementById(inputId).classList.add('login-input-error');
+}
+function loginClearError(errId,inputId){
+  document.getElementById(errId).classList.remove('show');
+  document.getElementById(inputId).classList.remove('login-input-error');
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') loginCloseModal();
+  if(e.key==='Enter'){
+    const overlay=document.getElementById('login-modal-overlay');
+    if(overlay.classList.contains('open')) loginHandleRequest();
+    else if(document.activeElement.id!=='login-access-code') loginHandleEmail();
+  }
+});
+</script>
+
     </div>
   </section>
 
