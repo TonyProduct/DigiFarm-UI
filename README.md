@@ -18,13 +18,18 @@ A single-page, static HTML reference for DigiFarm's design system — design tok
 - Buttons — variants, sizes, states, underlined links
 - Buttons with icons — leading/trailing icon slots, icon-only buttons
 - Inputs & Forms — text states (including error hint pattern), icon inputs, slider, select
-- Badges & Tags, Cards & Surfaces, Alerts
+- Dropdown / Dropdown items — trigger states and the option-list panel
+- Badges & Tags, Cards & Surfaces
+- Alerts — five semantic variants (neutral, info, warning, error, success)
+- Table — striped rows, hover highlight, row-actions column
+- Tooltip — top/bottom placement, icon/button/text/badge triggers
 
 **Patterns**
 - Map UI Elements — overlay panels, layer controls, coordinate display
 - CSS Variables — the full `:root` token block, copy-paste ready
 
 **Blocks** (full composed examples)
+- Login / Registration — access-code + email sign-in flow with a request-account modal
 - Crop Classification
 - Productivity Zones
 - Time Series
@@ -39,7 +44,7 @@ Everything loads from CDNs at runtime — there's nothing to install:
 
 - **Fonts** — Inter & IBM Plex Mono via Google Fonts
 - **Flags** — [`country-flag-icons`](https://www.npmjs.com/package/country-flag-icons) via jsDelivr
-- **Icons** — [Remix Icon](https://remixicon.com) webfont via jsDelivr (Icon Library block)
+- **Icons** — [Remix Icon](https://remixicon.com) webfont via jsDelivr (Icon Library block, Table row actions)
 - **Partner logos / favicon** — hotlinked images (swap for local assets whenever convenient)
 
 No React, no bundler, no `node_modules`. Open `index.html` directly in a browser and it works.
