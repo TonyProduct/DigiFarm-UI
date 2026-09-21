@@ -10,21 +10,27 @@ A single-page, static HTML reference for DigiFarm's design system — design tok
 
 **Foundation**
 - Logo — brand mark on its dark tile, reference sizes
-- Partners — partner/integration logos, light and dark variants
+- Partners — 20+ partner/integration logos, light and dark variants, light-tile logos listed first
 - Colors, Typography, Spacing & Radius
-- Flags — 250 countries via the `country-flag-icons` CDN, click to copy
+- Flags — 250 countries via the `country-flag-icons` CDN, full-width grid, click to copy
 
 **Components**
 - Buttons — variants, sizes, states, underlined links
 - Buttons with icons — leading/trailing icon slots, icon-only buttons
-- Inputs & Forms — text states (including error hint pattern), icon inputs, slider, select
+- Segmented Control — default, small, with icons, and disabled states
+- Inputs & Forms — text states (including error hint pattern), Input with Label (label-top/input-bottom, three states), icon inputs, slider, select
 - Radio — label/description/status field integration, disabled state
 - Checkbox — single on/off toggle, indeterminate state, disabled state
 - Dropdown / Dropdown items — trigger states and the option-list panel
-- Badges & Tags, Cards & Surfaces
-- Alerts — five semantic variants (neutral, info, warning, error, success)
-- Table — striped rows, hover highlight, row-actions column
+- Badges & Tags — default and small sizes, five statuses (active, review, offline, in progress, pending)
+- Cards & Surfaces, Selectable Cards
+- Avatar — sizes, no-color/neutral variant, status indicators, avatar groups, hover-to-reveal name, User Card example
+- Alerts — five semantic variants (neutral, info, warning, error, success), plus icon-less variants
+- Calendar — single date, date range, and two-month range pickers
+- Table — two-line field cells, striped rows, hover highlight, anchored row-actions dropdown, sortable Area column
 - Tooltip — top/bottom placement, icon/button/text/badge triggers
+- Draggable Cards — live vertical reordering
+- Loaders — five CSS-only spinners in brand colors
 
 **Patterns**
 - Map UI Elements — overlay panels, layer controls, coordinate display

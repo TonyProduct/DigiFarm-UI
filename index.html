@@ -288,6 +288,160 @@
     }
     .btn-circle.outlined:hover { background: rgba(255,255,255,0.04); }
 
+    /* SEGMENTED CONTROL */
+    .segmented-control {
+      display: inline-flex;
+      background: var(--bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 2px;
+      gap: 2px;
+    }
+    .segmented-control.disabled { opacity: 0.45; pointer-events: none; }
+    .segmented-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--muted);
+      border-radius: calc(var(--radius) - 1px);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .segmented-item:hover:not(.active) { color: var(--white); }
+    .segmented-item.active { background: var(--green); color: #fff; }
+    .segmented-item i, .segmented-item svg.ic { font-size: 14px; }
+    .segmented-sm .segmented-item { padding: 4px 12px; font-size: 12px; }
+
+    /* CALENDAR */
+    .cal-widget {
+      width: 280px;
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .cal-month-label { font-size: 13px; font-weight: 600; color: var(--white); }
+    .cal-nav-btn {
+      width: 26px; height: 26px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+    .cal-nav-btn:hover { background: var(--bg3); color: var(--white); }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 4px;
+    }
+    .cal-weekdays span {
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--white);
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .cal-day:hover { background: var(--bg3); }
+    .cal-day.muted { color: var(--muted); opacity: 0.4; cursor: default; }
+    .cal-day.today { border: 1px solid var(--green); }
+    .cal-day.selected { background: var(--green); color: #fff; font-weight: 600; }
+    .cal-day.in-range { background: rgba(0,148,99,0.18); border-radius: 0; }
+    .cal-day.range-start { background: var(--green); color: #fff; border-radius: var(--radius) 0 0 var(--radius); }
+    .cal-day.range-end { background: var(--green); color: #fff; border-radius: 0 var(--radius) var(--radius) 0; }
+    .cal-day.range-start.range-end { border-radius: var(--radius); }
+
+    /* AVATAR */
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .avatar-sm { width: 28px; height: 28px; font-size: 11px; }
+    .avatar-lg { width: 56px; height: 56px; font-size: 18px; }
+    .avatar-status {
+      position: absolute;
+      right: -1px; bottom: -1px;
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      border: 2px solid var(--bg2);
+    }
+    .avatar-sm .avatar-status { width: 8px; height: 8px; border-width: 1.5px; }
+    .avatar-lg .avatar-status { width: 14px; height: 14px; border-width: 2.5px; }
+    .avatar-status.success { background: var(--green); }
+    .avatar-status.error { background: #F84A4A; }
+    .avatar-status.neutral { background: var(--muted); }
+    .avatar-group { display: flex; }
+    .avatar-group .avatar { border: 2px solid var(--bg2); margin-left: -10px; }
+    .avatar-group .avatar:first-child { margin-left: 0; }
+    .avatar-overflow { background: var(--bg3); color: var(--muted); font-size: 12px; }
+
+    /* SELECTABLE CARD */
+    .selectable-card {
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      position: relative;
+    }
+    .selectable-card:hover { border-color: rgba(255,255,255,0.2); }
+    .selectable-card.selected { border-color: var(--green); background: rgba(0,148,99,0.06); }
+    .selectable-card-check {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: transparent;
+      font-size: 11px;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .selectable-card.selected .selectable-card-check {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .selectable-card-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; padding-right: 24px; }
+    .selectable-card-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .avatar-neutral { background: rgba(255,255,255,0.08); color: var(--white); }
+
     /* UNDERLINED LINK BUTTON */
     .btn-link {
       background: none;
@@ -589,6 +743,145 @@
       font-size: 16px;
     }
     .table-dots-btn:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+    .table-cell-title { font-weight: 600; color: var(--white); }
+    .table-cell-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .sortable-th {
+      cursor: pointer;
+      user-select: none;
+      display: table-cell;
+    }
+    .sortable-th i { vertical-align: middle; margin-left: 2px; color: var(--muted); }
+    .sortable-th:hover { color: var(--white); }
+    .sortable-th:hover i { color: var(--white); }
+
+    /* ROW ACTIONS DROPDOWN */
+    .row-dropdown {
+      position: fixed;
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      width: 160px;
+      padding: 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      z-index: 60;
+      display: none;
+    }
+    .row-dropdown.open { display: block; }
+    .row-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      color: var(--white);
+      cursor: pointer;
+    }
+    .row-dropdown-item:hover { background: var(--bg3); }
+    .row-dropdown-item.danger { color: #F84A4A; }
+
+    /* DRAG CARDS */
+    .drag-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 8px;
+      cursor: grab;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .drag-card:last-child { margin-bottom: 0; }
+    .drag-card:hover { border-color: rgba(255,255,255,0.16); }
+    .drag-card.dragging {
+      opacity: 0.4;
+      cursor: grabbing;
+      border-color: var(--green);
+    }
+    .drag-handle {
+      color: var(--muted);
+      flex-shrink: 0;
+      font-size: 16px;
+      cursor: grab;
+    }
+    .drag-card-title { font-size: 13px; font-weight: 600; color: var(--white); }
+    .drag-card-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* LOADERS */
+    .ld-01, .ld-01 *, .ld-01 *::before, .ld-01 *::after { box-sizing: border-box; }
+    .ld-01 {
+      --ld-accent: var(--green);
+      --ld-accent2: var(--purple);
+      --ld-accent3: #EA891D;
+    }
+    .ld-01__stage {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .ld-01__cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .ld-01__label {
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .ld-01__ring {
+      width: 56px; height: 56px;
+      border: 4px solid rgba(0,148,99,0.2);
+      border-top-color: var(--ld-accent);
+      border-radius: 50%;
+      animation: ld-01-spin 1s linear infinite;
+    }
+    @keyframes ld-01-spin { to { transform: rotate(360deg); } }
+    .ld-01__double {
+      width: 56px; height: 56px;
+      border: 4px solid transparent;
+      border-top-color: var(--ld-accent);
+      border-bottom-color: var(--ld-accent2);
+      border-radius: 50%;
+      animation: ld-01-spin 1.2s linear infinite;
+    }
+    .ld-01__dashed {
+      width: 56px; height: 56px;
+      border: 4px dashed var(--ld-accent);
+      border-radius: 50%;
+      animation: ld-01-spin 2.2s linear infinite;
+      opacity: 0.8;
+    }
+    .ld-01__gradient {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: conic-gradient(var(--ld-accent), var(--ld-accent2), var(--ld-accent3), var(--ld-accent));
+      animation: ld-01-spin 1s linear infinite;
+      -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 6px), #000 0);
+      mask: radial-gradient(farthest-side, #0000 calc(100% - 6px), #000 0);
+    }
+    .ld-01__pulse-ring {
+      width: 56px; height: 56px;
+      border: 4px solid var(--ld-accent);
+      border-radius: 50%;
+      animation: ld-01-pulse-ring 1.5s ease-out infinite;
+    }
+    @keyframes ld-01-pulse-ring {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ld-01__ring, .ld-01__double, .ld-01__dashed, .ld-01__gradient, .ld-01__pulse-ring {
+        animation: none;
+      }
+    }
 
     /* TOOLTIP */
     .tooltip-wrap { position: relative; display: inline-flex; }
@@ -671,6 +964,8 @@
     .badge-green { background: rgba(0,148,99,0.15); color: #009463; border: 1px solid rgba(0,148,99,0.3); }
     .badge-purple { background: rgba(156,127,239,0.15); color: var(--purple); border: 1px solid rgba(156,127,239,0.3); }
     .badge-amber { background: rgba(234,137,29,0.12); color: #EA891D; border: 1px solid rgba(234,137,29,0.25); }
+    .badge-grey { background: rgba(134,151,168,0.15); color: var(--muted); border: 1px solid rgba(134,151,168,0.3); }
+    .badge-sm { padding: 2px 8px; font-size: 10px; }
     .badge-red { background: rgba(248,74,74,0.12); color: #F84A4A; border: 1px solid rgba(248,74,74,0.25); }
     .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 
@@ -1171,6 +1466,7 @@
   <a href="#flags">Flags</a>
   <a href="#buttons">Buttons</a>
   <a href="#icon-buttons">Buttons with icons</a>
+  <a href="#segmented-control">Segmented Control</a>
   <a href="#inputs">Inputs &amp; Forms</a>
   <a href="#radio">Radio</a>
   <a href="#checkbox">Checkbox</a>
@@ -1178,8 +1474,13 @@
   <a href="#dropdown-items">Dropdown items</a>
   <a href="#badges">Badges &amp; Tags</a>
   <a href="#cards">Cards &amp; Surfaces</a>
+  <a href="#avatar">Avatar</a>
   <a href="#alerts">Alerts</a>
+  <a href="#calendar">Calendar</a>
   <a href="#table">Table</a>
+  <a href="#selectable-cards">Selectable Cards</a>
+  <a href="#drag-cards">Draggable Cards</a>
+  <a href="#loaders">Loaders</a>
   <a href="#tooltip">Tooltip</a>
   <a href="#auth">Login / Registration</a>
   <a href="#map-ui">Map UI Elements</a>
@@ -1210,7 +1511,7 @@
 <main>
 
   <div class="page-header">
-    <div class="page-title">DigiFarm UI Guidelines <span class="version-pill">v1.4</span></div>
+    <div class="page-title">DigiFarm UI Guidelines <span class="version-pill">v1.7</span></div>
     <div class="page-subtitle">Design system for all client-facing demos and internal tools. All components use the same tokens — dark, satellite-first aesthetic with agricultural green as the primary action color.</div>
   </div>
 
@@ -1218,10 +1519,41 @@
   <div class="card changelog-card" id="changelog">
     <div class="changelog-card-head">
       <h2>Changelog</h2>
-      <span class="version-pill">v1.4</span>
+      <span class="version-pill">v1.7</span>
     </div>
 
     <div id="changelog-recent">
+
+      <div class="changelog-version">
+        <div class="changelog-version-title">Version 1.7 <span class="changelog-version-date">(Sep 21, 2026)</span></div>
+        <ul class="changelog-list">
+          <li>Added Selectable Cards; fixed Avatar's neutral status styling and switched the User Card example to medium-size avatars.</li>
+          <li>Added the Avatar component — sizes, no-color/neutral variant, status indicators, avatar groups, hover-to-reveal name, and a User Card example.</li>
+          <li>Added the Calendar component — single date, date range, and two-month range pickers.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-version">
+        <div class="changelog-version-title">Version 1.6 <span class="changelog-version-date">(Sep 21, 2026)</span></div>
+        <ul class="changelog-list">
+          <li>Added Segmented Control, Loaders, and Draggable Cards components.</li>
+          <li>Table: two-line field cells, updated status badges, an anchored row-actions dropdown, and a sortable Area column.</li>
+          <li>Badges &amp; Tags: added a small size, removed status dots, added a Pending (grey) status, and renamed Beta → In Progress, Processing → Review.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-version">
+        <div class="changelog-version-title">Version 1.5 <span class="changelog-version-date">(Sep 21, 2026)</span></div>
+        <ul class="changelog-list">
+          <li>Added Illustrations and Partners blocks; Partners now carries 20+ logos with light/dark variants, reordered light-first.</li>
+          <li>Simplified the Login header to the wordmark only, added icon-less Alert variants, and reworked Input with Label to a label-top / input-bottom, three-state (default, focused, error) pattern.</li>
+          <li>Polish: full-width Country Flags grid, square favicon (no radius), and the Dropdown label no longer shows a required asterisk.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div id="changelog-older" class="changelog-older">
 
       <div class="changelog-version">
         <div class="changelog-version-title">Version 1.4 <span class="changelog-version-date">(Aug 28, 2026)</span></div>
@@ -1249,10 +1581,6 @@
           <li>Added the Logo section (wordmark and favicon reference sizes) and the Buttons with Icons block.</li>
         </ul>
       </div>
-
-    </div>
-
-    <div id="changelog-older" class="changelog-older">
 
       <div class="changelog-version">
         <div class="changelog-version-title">Version 1.1 <span class="changelog-version-date">(Aug 27, 2026)</span></div>
@@ -1370,7 +1698,7 @@
   <section id="partners">
     <div class="section-label">Foundation</div>
     <h2>Partners</h2>
-    <p class="section-desc">Partner and integration logos, shown on a light tile since most marks are dark-only right now. Dark and light variants coming later.</p>
+    <p class="section-desc">Partner and integration logos. Full-color and dark-only marks sit on a light tile; white/light-only marks sit on a dark tile.</p>
     <hr/>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;">
@@ -1379,17 +1707,28 @@
       <div class="partner-tile"><img src="https://i.postimg.cc/VrtmmFjx/Bayer.png" alt="Bayer"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/34GYYZgP/CNHi.png" alt="CNHi"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/d3CjzTbV/Corteva-dark.png" alt="Corteva"/></div>
-      <div class="partner-tile-dark"><img src="https://i.postimg.cc/vm5FFwmB/Corteva-logo.png" alt="Corteva (dark bg)"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/2bWrrxQf/ENI.png" alt="ENI"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/xJmnnPvV/Farmers-Adge.png" alt="Farmers Edge"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/ftdDDvc4/Fieldmargin.png" alt="Fieldmargin"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/DJGnncrT/Helm.png" alt="Helm"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/34GYYZXY/Klim.png" alt="Klim"/></div>
-      <div class="partner-tile-dark"><img src="https://i.postimg.cc/C58sWf3L/Klim-dark.png" alt="Klim (dark bg)"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/CB8SS4GY/Mahindra.png" alt="Mahindra"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/PpDTTMWd/NMA.png" alt="NMA"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/phjRRBf2/Varda.png" alt="Varda"/></div>
       <div class="partner-tile"><img src="https://i.postimg.cc/7JyD6TVd/Vayda.png" alt="Vayda"/></div>
+      <div class="partner-tile"><img src="https://i.postimg.cc/vgN4f5X5/Seqana.png" alt="Seqana"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/vm5FFwmB/Corteva-logo.png" alt="Corteva (dark bg)"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/XGzrd9xf/Farmers-Edge-white.png" alt="Farmers Edge (dark bg)"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/TL4KgnQj/fieldmargin-white.png" alt="Fieldmargin (dark bg)"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/C58sWf3L/Klim-dark.png" alt="Klim (dark bg)"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/0MQ6zVGn/Oracle-white.png" alt="Oracle"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/phT9msQk/Sintef-white.png" alt="SINTEF"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/gXJwxgyN/Esa-white.png" alt="ESA"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/ph6mzKkj/AWS-white.png" alt="AWS"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/k6p2KWwK/Sigma2-white.png" alt="Sigma2"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/PpRCY1KZ/EOSCA-white.png" alt="EOSCA"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/PpRCY1Km/KWS-white.png" alt="KWS"/></div>
+      <div class="partner-tile-dark"><img src="https://i.postimg.cc/sQXBMTPc/Jordbruks-verket-white.png" alt="Jordbruksverket"/></div>
     </div>
   </section>
 
@@ -1901,6 +2240,58 @@
     </div>
   </section>
 
+  <!-- SEGMENTED CONTROL -->
+  <section id="segmented-control">
+    <div class="section-label">Components</div>
+    <h2>Segmented Control</h2>
+    <p class="section-desc">Container wrapper providing shared context (value, onChange, size, isDisabled) to its segment items. Used for mutually exclusive view or range switches.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="comp-label">Default</div>
+        <div class="segmented-control">
+          <div class="segmented-item active" onclick="segSelect(this)">Day</div>
+          <div class="segmented-item" onclick="segSelect(this)">Week</div>
+          <div class="segmented-item" onclick="segSelect(this)">Month</div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Small</div>
+        <div class="segmented-control segmented-sm">
+          <div class="segmented-item active" onclick="segSelect(this)">NDVI</div>
+          <div class="segmented-item" onclick="segSelect(this)">NDMI</div>
+          <div class="segmented-item" onclick="segSelect(this)">EVI</div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">With Icons</div>
+        <div class="segmented-control">
+          <div class="segmented-item active" onclick="segSelect(this)"><i class="ri-map-line"></i>Map</div>
+          <div class="segmented-item" onclick="segSelect(this)"><i class="ri-list-unordered"></i>List</div>
+          <div class="segmented-item" onclick="segSelect(this)"><i class="ri-grid-line"></i>Grid</div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Disabled</div>
+        <div class="segmented-control disabled">
+          <div class="segmented-item active">Day</div>
+          <div class="segmented-item">Week</div>
+          <div class="segmented-item">Month</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function segSelect(el) {
+      const parent = el.parentElement;
+      if (parent.classList.contains('disabled')) return;
+      parent.querySelectorAll('.segmented-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+
   <!-- INPUTS -->
   <section id="inputs">
     <div class="section-label">Components</div>
@@ -2114,16 +2505,25 @@
   <section id="badges">
     <div class="section-label">Components</div>
     <h2>Badges & Tags</h2>
-    <p class="section-desc">IBM Plex Mono 11px. Used for status, confidence levels, crop types, and model state. All 4px radius.</p>
+    <p class="section-desc">IBM Plex Mono. Used for status, confidence levels, crop types, and model state. Default and small sizes, all 4px radius.</p>
     <hr/>
 
     <div class="card">
       <div class="comp-row">
         <div class="comp-label">Status</div>
-        <span class="badge badge-green"><span class="badge-dot"></span>Model Active</span>
-        <span class="badge badge-amber"><span class="badge-dot"></span>Processing</span>
-        <span class="badge badge-red"><span class="badge-dot"></span>Offline</span>
-        <span class="badge badge-purple"><span class="badge-dot"></span>Beta</span>
+        <span class="badge badge-green">Model Active</span>
+        <span class="badge badge-amber">Review</span>
+        <span class="badge badge-red">Offline</span>
+        <span class="badge badge-purple">In Progress</span>
+        <span class="badge badge-grey">Pending</span>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Status — Small</div>
+        <span class="badge badge-sm badge-green">Model Active</span>
+        <span class="badge badge-sm badge-amber">Review</span>
+        <span class="badge badge-sm badge-red">Offline</span>
+        <span class="badge badge-sm badge-purple">In Progress</span>
+        <span class="badge badge-sm badge-grey">Pending</span>
       </div>
       <div class="comp-row">
         <div class="comp-label">Confidence</div>
@@ -2180,6 +2580,88 @@
           <div class="demo-card-label">Model Confidence</div>
           <div class="demo-card-val">94.2<span style="font-size:13px;font-weight:400;color:var(--muted);">%</span></div>
           <div class="demo-card-sub">bg: rgba(23,33,43,0.7) + blur(16px)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVATAR -->
+  <section id="avatar">
+    <div class="section-label">Components</div>
+    <h2>Avatar</h2>
+    <p class="section-desc">Displays a user avatar with image, initials fallback, and an optional status indicator. Shown here without photos — initials on a colored background. Hover any avatar to see the name.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="comp-label">Sizes (initials fallback)</div>
+        <div class="tooltip-wrap"><div class="avatar avatar-sm" style="background:#009463;">JD</div><div class="tooltip-bubble">Jane Doe</div></div>
+        <div class="tooltip-wrap"><div class="avatar" style="background:#9C7FEF;">AK</div><div class="tooltip-bubble">Aaron Kim</div></div>
+        <div class="tooltip-wrap"><div class="avatar avatar-lg" style="background:#4DB5FA;">MR</div><div class="tooltip-bubble">Maria Rossi</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">No Color (Neutral)</div>
+        <div class="tooltip-wrap"><div class="avatar avatar-sm avatar-neutral">JD</div><div class="tooltip-bubble">Jane Doe</div></div>
+        <div class="tooltip-wrap"><div class="avatar avatar-neutral">AK</div><div class="tooltip-bubble">Aaron Kim</div></div>
+        <div class="tooltip-wrap"><div class="avatar avatar-lg avatar-neutral">MR</div><div class="tooltip-bubble">Maria Rossi</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Status Indicator</div>
+        <div class="tooltip-wrap"><div class="avatar" style="background:#009463;">JD<span class="avatar-status success"></span></div><div class="tooltip-bubble">Jane Doe · Success</div></div>
+        <div class="tooltip-wrap"><div class="avatar" style="background:#9C7FEF;">AK<span class="avatar-status error"></span></div><div class="tooltip-bubble">Aaron Kim · Error</div></div>
+        <div class="tooltip-wrap"><div class="avatar" style="background:#4DB5FA;">MR<span class="avatar-status neutral"></span></div><div class="tooltip-bubble">Maria Rossi · Neutral</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Avatar Group</div>
+        <div class="avatar-group">
+          <div class="tooltip-wrap"><div class="avatar" style="background:#009463;">JD</div><div class="tooltip-bubble">Jane Doe</div></div>
+          <div class="tooltip-wrap"><div class="avatar" style="background:#9C7FEF;">AK</div><div class="tooltip-bubble">Aaron Kim</div></div>
+          <div class="tooltip-wrap"><div class="avatar" style="background:#4DB5FA;">MR</div><div class="tooltip-bubble">Maria Rossi</div></div>
+          <div class="tooltip-wrap"><div class="avatar" style="background:#EA891D;">TS</div><div class="tooltip-bubble">Tom Silva</div></div>
+          <div class="tooltip-wrap"><div class="avatar avatar-overflow">+5</div><div class="tooltip-bubble">+5 more people</div></div>
+        </div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Avatar Group with Status</div>
+        <div class="avatar-group">
+          <div class="tooltip-wrap"><div class="avatar" style="background:#009463;">JD<span class="avatar-status success"></span></div><div class="tooltip-bubble">Jane Doe</div></div>
+          <div class="tooltip-wrap"><div class="avatar" style="background:#9C7FEF;">AK<span class="avatar-status error"></span></div><div class="tooltip-bubble">Aaron Kim</div></div>
+          <div class="tooltip-wrap"><div class="avatar" style="background:#4DB5FA;">MR<span class="avatar-status neutral"></span></div><div class="tooltip-bubble">Maria Rossi</div></div>
+        </div>
+      </div>
+      <div class="comp-row" style="align-items:flex-start;">
+        <div class="comp-label">User Card</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="tooltip-wrap">
+              <div class="avatar" style="background:#009463;">IJ<span class="avatar-status success"></span></div>
+              <div class="tooltip-bubble">Itai Jordaan</div>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--white);">Itai Jordaan</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Engineering Lead</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="tooltip-wrap">
+              <div class="avatar avatar-neutral">MS<span class="avatar-status neutral"></span></div>
+              <div class="tooltip-bubble">Margot Schroder</div>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--white);">Margot Schroder</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Product Designer</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="tooltip-wrap">
+              <div class="avatar" style="background:#9C7FEF;">DG<span class="avatar-status error"></span></div>
+              <div class="tooltip-bubble">Daniela Gimenez</div>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--white);">Daniela Gimenez</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Engineering Manager</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2247,11 +2729,267 @@
     </div>
   </section>
 
+  <!-- CALENDAR -->
+  <section id="calendar">
+    <div class="section-label">Components</div>
+    <h2>Calendar</h2>
+    <p class="section-desc">Lets the user pick a date or date range from a month grid — single month, range, or two months side by side. Used in booking flows, scheduling UIs, date filters, or anywhere surrounding-date context helps.</p>
+    <hr/>
+
+    <div class="grid-2" style="align-items:start;">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Single Date</div>
+        <div class="cal-widget">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="calNav('single', -1)"><i class="ri-arrow-left-s-line"></i></button>
+            <div class="cal-month-label" id="cal-single-label"></div>
+            <button class="cal-nav-btn" onclick="calNav('single', 1)"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+          </div>
+          <div class="cal-grid" id="cal-single-grid"></div>
+        </div>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Date Range</div>
+        <div class="cal-widget">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="calNav('range', -1)"><i class="ri-arrow-left-s-line"></i></button>
+            <div class="cal-month-label" id="cal-range-label"></div>
+            <button class="cal-nav-btn" onclick="calNav('range', 1)"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+          </div>
+          <div class="cal-grid" id="cal-range-grid"></div>
+        </div>
+        <div id="cal-range-readout" style="margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--muted);"></div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;">
+      <div class="card-label" style="margin-bottom:12px;">Two Months (Range)</div>
+      <div id="cal-twomonth-readout" style="text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:14px;"></div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div class="cal-widget">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="calTwoMonthNav(-1)"><i class="ri-arrow-left-s-line"></i></button>
+            <div class="cal-month-label" id="cal-twomonth-label-0"></div>
+            <div style="width:26px;"></div>
+          </div>
+          <div class="cal-weekdays">
+            <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+          </div>
+          <div class="cal-grid" id="cal-twomonth-grid-0"></div>
+        </div>
+        <div class="cal-widget">
+          <div class="cal-header">
+            <div style="width:26px;"></div>
+            <div class="cal-month-label" id="cal-twomonth-label-1"></div>
+            <button class="cal-nav-btn" onclick="calTwoMonthNav(1)"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+          </div>
+          <div class="cal-grid" id="cal-twomonth-grid-1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const calState = {
+      single: { year: null, month: null, selected: null },
+      range: { year: null, month: null, start: null, end: null },
+      twomonth: { year: 2026, month: 0, start: '2026-01-25', end: '2026-02-05' }
+    };
+
+    function calPad(n) { return n < 10 ? '0' + n : '' + n; }
+    function calDateKey(y, m, d) { return y + '-' + calPad(m + 1) + '-' + calPad(d); }
+
+    function calNav(which, dir) {
+      const st = calState[which];
+      st.month += dir;
+      if (st.month < 0) { st.month = 11; st.year--; }
+      if (st.month > 11) { st.month = 0; st.year++; }
+      renderCalendar(which);
+    }
+
+    function renderCalendar(which) {
+      const st = calState[which];
+      const label = document.getElementById('cal-' + which + '-label');
+      const grid = document.getElementById('cal-' + which + '-grid');
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      label.textContent = monthNames[st.month] + ' ' + st.year;
+
+      const firstOfMonth = new Date(st.year, st.month, 1);
+      const startOffset = (firstOfMonth.getDay() + 6) % 7;
+      const daysInMonth = new Date(st.year, st.month + 1, 0).getDate();
+      const daysInPrevMonth = new Date(st.year, st.month, 0).getDate();
+
+      const now = new Date();
+      const todayKey = calDateKey(now.getFullYear(), now.getMonth(), now.getDate());
+
+      let cells = [];
+      for (let i = startOffset; i > 0; i--) {
+        cells.push({ day: daysInPrevMonth - i + 1, muted: true });
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        cells.push({ day: d, muted: false });
+      }
+      const remaining = (7 - (cells.length % 7)) % 7;
+      for (let d = 1; d <= remaining; d++) {
+        cells.push({ day: d, muted: true });
+      }
+
+      grid.innerHTML = '';
+      cells.forEach(cell => {
+        const div = document.createElement('div');
+        div.className = 'cal-day';
+        div.textContent = cell.day;
+        if (cell.muted) {
+          div.classList.add('muted');
+        } else {
+          const key = calDateKey(st.year, st.month, cell.day);
+          if (key === todayKey) div.classList.add('today');
+
+          if (which === 'single') {
+            if (st.selected === key) div.classList.add('selected');
+            div.onclick = () => { st.selected = key; renderCalendar('single'); };
+          } else {
+            if (st.start && st.end) {
+              if (key === st.start) div.classList.add('range-start');
+              if (key === st.end) div.classList.add('range-end');
+              if (key > st.start && key < st.end) div.classList.add('in-range');
+            } else if (st.start && key === st.start) {
+              div.classList.add('range-start', 'range-end');
+            }
+            div.onclick = () => {
+              if (!st.start || (st.start && st.end)) {
+                st.start = key; st.end = null;
+              } else if (key < st.start) {
+                st.end = st.start; st.start = key;
+              } else {
+                st.end = key;
+              }
+              renderCalendar('range');
+              updateRangeReadout();
+            };
+          }
+        }
+        grid.appendChild(div);
+      });
+    }
+
+    function updateRangeReadout() {
+      const st = calState.range;
+      const el = document.getElementById('cal-range-readout');
+      if (st.start && st.end) {
+        el.textContent = st.start + '  →  ' + st.end;
+      } else if (st.start) {
+        el.textContent = st.start + '  →  Select end date';
+      } else {
+        el.textContent = 'Select a start date';
+      }
+    }
+
+    function calTwoMonthNav(dir) {
+      const st = calState.twomonth;
+      st.month += dir;
+      if (st.month < 0) { st.month = 11; st.year--; }
+      if (st.month > 11) { st.month = 0; st.year++; }
+      renderTwoMonth();
+    }
+
+    function renderTwoMonth() {
+      const st = calState.twomonth;
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const now = new Date();
+      const todayKey = calDateKey(now.getFullYear(), now.getMonth(), now.getDate());
+
+      for (let offset = 0; offset < 2; offset++) {
+        let y = st.year, m = st.month + offset;
+        if (m > 11) { m -= 12; y += 1; }
+
+        document.getElementById('cal-twomonth-label-' + offset).textContent = monthNames[m] + ' ' + y;
+        const grid = document.getElementById('cal-twomonth-grid-' + offset);
+
+        const firstOfMonth = new Date(y, m, 1);
+        const startOffset = (firstOfMonth.getDay() + 6) % 7;
+        const daysInMonth = new Date(y, m + 1, 0).getDate();
+        const daysInPrevMonth = new Date(y, m, 0).getDate();
+
+        let cells = [];
+        for (let i = startOffset; i > 0; i--) {
+          cells.push({ day: daysInPrevMonth - i + 1, muted: true });
+        }
+        for (let d = 1; d <= daysInMonth; d++) {
+          cells.push({ day: d, muted: false });
+        }
+        const remaining = (7 - (cells.length % 7)) % 7;
+        for (let d = 1; d <= remaining; d++) {
+          cells.push({ day: d, muted: true });
+        }
+
+        grid.innerHTML = '';
+        cells.forEach(cell => {
+          const div = document.createElement('div');
+          div.className = 'cal-day';
+          div.textContent = cell.day;
+          if (cell.muted) {
+            div.classList.add('muted');
+          } else {
+            const key = calDateKey(y, m, cell.day);
+            if (key === todayKey) div.classList.add('today');
+            if (st.start && st.end) {
+              if (key === st.start) div.classList.add('range-start');
+              if (key === st.end) div.classList.add('range-end');
+              if (key > st.start && key < st.end) div.classList.add('in-range');
+            } else if (st.start && key === st.start) {
+              div.classList.add('range-start', 'range-end');
+            }
+            div.onclick = () => {
+              if (!st.start || (st.start && st.end)) {
+                st.start = key; st.end = null;
+              } else if (key < st.start) {
+                st.end = st.start; st.start = key;
+              } else {
+                st.end = key;
+              }
+              renderTwoMonth();
+            };
+          }
+          grid.appendChild(div);
+        });
+      }
+      updateTwoMonthReadout();
+    }
+
+    function updateTwoMonthReadout() {
+      const st = calState.twomonth;
+      const el = document.getElementById('cal-twomonth-readout');
+      el.textContent = (st.start && st.end) ? (st.start + '  →  ' + st.end) : 'Pick a date range';
+    }
+
+    (function initCalendars() {
+      const now = new Date();
+      calState.single.year = now.getFullYear();
+      calState.single.month = now.getMonth();
+      calState.range.year = now.getFullYear();
+      calState.range.month = now.getMonth();
+      renderCalendar('single');
+      renderCalendar('range');
+      updateRangeReadout();
+      renderTwoMonth();
+    })();
+  </script>
+
   <!-- TABLE -->
   <section id="table">
     <div class="section-label">Components</div>
     <h2>Table</h2>
-    <p class="section-desc">Data-driven table with striped rows, row-hover highlight, and dividers between rows. Last column holds a row-actions menu.</p>
+    <p class="section-desc">Data-driven table with striped rows, row-hover highlight, and dividers between rows. Field column shows a two-line title + description. Sort by Area, and open row actions from the last column.</p>
     <hr/>
 
     <div class="table-wrap">
@@ -2260,55 +2998,244 @@
           <tr>
             <th>Field</th>
             <th>Crop</th>
-            <th>Area (ha)</th>
+            <th class="sortable-th" onclick="sortByArea()">Area (ha) <i class="ri-arrow-down-s-line" id="area-sort-icon"></i></th>
             <th>Status</th>
             <th>Last synced</th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>North Ridge — Block A</td>
+        <tbody id="data-table-body">
+          <tr data-area="42.6">
+            <td>
+              <div class="table-cell-title">North Ridge — Block A</div>
+              <div class="table-cell-desc">Central sector, irrigated</div>
+            </td>
             <td>Winter Wheat</td>
             <td>42.6</td>
-            <td><span class="badge badge-green"><span class="badge-dot"></span>Active</span></td>
+            <td><span class="badge badge-sm badge-green">Active</span></td>
             <td style="color:var(--muted);">2h ago</td>
-            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+            <td>
+              <button class="table-dots-btn" onclick="toggleRowMenu(event)"><i class="ri-more-2-fill"></i></button>
+            </td>
           </tr>
-          <tr>
-            <td>Lower Basin — Block C</td>
+          <tr data-area="28.1">
+            <td>
+              <div class="table-cell-title">Lower Basin — Block C</div>
+              <div class="table-cell-desc">River-adjacent, drainage monitored</div>
+            </td>
             <td>Maize</td>
             <td>28.1</td>
-            <td><span class="badge badge-green"><span class="badge-dot"></span>Active</span></td>
+            <td><span class="badge badge-sm badge-green">Active</span></td>
             <td style="color:var(--muted);">2h ago</td>
-            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+            <td>
+              <button class="table-dots-btn" onclick="toggleRowMenu(event)"><i class="ri-more-2-fill"></i></button>
+            </td>
           </tr>
-          <tr>
-            <td>East Terrace</td>
+          <tr data-area="15.9">
+            <td>
+              <div class="table-cell-title">East Terrace</div>
+              <div class="table-cell-desc">Southeast slope</div>
+            </td>
             <td>Soybean</td>
             <td>15.9</td>
-            <td><span class="badge badge-amber"><span class="badge-dot"></span>Syncing</span></td>
+            <td><span class="badge badge-sm badge-amber">Syncing</span></td>
             <td style="color:var(--muted);">14m ago</td>
-            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+            <td>
+              <button class="table-dots-btn" onclick="toggleRowMenu(event)"><i class="ri-more-2-fill"></i></button>
+            </td>
           </tr>
-          <tr>
-            <td>Hillside — Block B</td>
+          <tr data-area="33.4">
+            <td>
+              <div class="table-cell-title">Hillside — Block B</div>
+              <div class="table-cell-desc">Terraced, manual entry</div>
+            </td>
             <td>Winter Wheat</td>
             <td>33.4</td>
-            <td><span class="badge badge-purple"><span class="badge-dot"></span>Draft</span></td>
+            <td><span class="badge badge-sm badge-grey">Pending</span></td>
             <td style="color:var(--muted);">1d ago</td>
-            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+            <td>
+              <button class="table-dots-btn" onclick="toggleRowMenu(event)"><i class="ri-more-2-fill"></i></button>
+            </td>
           </tr>
-          <tr>
-            <td>South Flats</td>
+          <tr data-area="21.7">
+            <td>
+              <div class="table-cell-title">South Flats</div>
+              <div class="table-cell-desc">Flat terrain, high wind exposure</div>
+            </td>
             <td>Sunflower</td>
             <td>21.7</td>
-            <td><span class="badge badge-red"><span class="badge-dot"></span>Error</span></td>
+            <td><span class="badge badge-sm badge-red">Error</span></td>
             <td style="color:var(--muted);">3d ago</td>
-            <td><button class="table-dots-btn"><i class="ri-more-2-fill"></i></button></td>
+            <td>
+              <button class="table-dots-btn" onclick="toggleRowMenu(event)"><i class="ri-more-2-fill"></i></button>
+            </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="row-dropdown" id="row-dropdown">
+      <div class="row-dropdown-item" onclick="closeAllRowMenus()"><i class="ri-eye-line"></i> View</div>
+      <div class="row-dropdown-item" onclick="closeAllRowMenus()"><i class="ri-edit-line"></i> Edit</div>
+      <div class="row-dropdown-item danger" onclick="closeAllRowMenus()"><i class="ri-delete-bin-line"></i> Delete</div>
+    </div>
+  </section>
+
+  <script>
+    let areaSortDesc = true;
+    function sortByArea() {
+      const tbody = document.getElementById('data-table-body');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort((a, b) => {
+        const av = parseFloat(a.dataset.area);
+        const bv = parseFloat(b.dataset.area);
+        return areaSortDesc ? bv - av : av - bv;
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      document.getElementById('area-sort-icon').className = areaSortDesc ? 'ri-arrow-down-s-line' : 'ri-arrow-up-s-line';
+      areaSortDesc = !areaSortDesc;
+    }
+    function toggleRowMenu(e) {
+      e.stopPropagation();
+      const btn = e.currentTarget;
+      const menu = document.getElementById('row-dropdown');
+      const wasOpenForThis = menu.classList.contains('open') && menu._owner === btn;
+      closeAllRowMenus();
+      if (wasOpenForThis) return;
+      const rect = btn.getBoundingClientRect();
+      menu.style.top = (rect.bottom + 4) + 'px';
+      menu.style.left = 'auto';
+      menu.style.right = (window.innerWidth - rect.right) + 'px';
+      menu._owner = btn;
+      menu.classList.add('open');
+    }
+    function closeAllRowMenus() {
+      const menu = document.getElementById('row-dropdown');
+      menu.classList.remove('open');
+      menu._owner = null;
+    }
+    document.addEventListener('click', closeAllRowMenus);
+    window.addEventListener('scroll', closeAllRowMenus, true);
+  </script>
+
+  <!-- SELECTABLE CARDS -->
+  <section id="selectable-cards">
+    <div class="section-label">Components</div>
+    <h2>Selectable Cards</h2>
+    <p class="section-desc">A card that toggles between selected and unselected states with an accent border. For navigation, use a Clickable Card instead.</p>
+    <hr/>
+
+    <div class="grid-3">
+      <div class="selectable-card selected" onclick="selectCard(this)">
+        <div class="selectable-card-check"><i class="ri-check-line"></i></div>
+        <div class="selectable-card-title">Hourly Sync</div>
+        <div class="selectable-card-desc">Field data updates every hour. Best for active monitoring.</div>
+      </div>
+      <div class="selectable-card" onclick="selectCard(this)">
+        <div class="selectable-card-check"><i class="ri-check-line"></i></div>
+        <div class="selectable-card-title">Daily Sync</div>
+        <div class="selectable-card-desc">One sync per day, early morning. Balances freshness and cost.</div>
+      </div>
+      <div class="selectable-card" onclick="selectCard(this)">
+        <div class="selectable-card-check"><i class="ri-check-line"></i></div>
+        <div class="selectable-card-title">Weekly Sync</div>
+        <div class="selectable-card-desc">Lowest cost option. Good for long-term trend tracking.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function selectCard(el) {
+      el.parentElement.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+  </script>
+
+  <!-- DRAG CARDS -->
+  <section id="drag-cards">
+    <div class="section-label">Components</div>
+    <h2>Draggable Cards</h2>
+    <p class="section-desc">Vertically reorderable list. Cards swap position live as the dragged card crosses the vertical midpoint of a neighbor — try dragging one.</p>
+    <hr/>
+
+    <div class="card">
+      <div id="drag-list" ondragover="dragOver(event)" style="max-width:420px;">
+        <div class="drag-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+          <i class="ri-drag-move-2-line drag-handle"></i>
+          <div>
+            <div class="drag-card-title">North Ridge — Block A</div>
+            <div class="drag-card-sub">42.6 ha · Winter Wheat</div>
+          </div>
+        </div>
+        <div class="drag-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+          <i class="ri-drag-move-2-line drag-handle"></i>
+          <div>
+            <div class="drag-card-title">Lower Basin — Block C</div>
+            <div class="drag-card-sub">28.1 ha · Maize</div>
+          </div>
+        </div>
+        <div class="drag-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+          <i class="ri-drag-move-2-line drag-handle"></i>
+          <div>
+            <div class="drag-card-title">East Terrace</div>
+            <div class="drag-card-sub">15.9 ha · Soybean</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function dragStart(e) {
+      e.target.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    }
+    function dragEnd(e) {
+      e.target.classList.remove('dragging');
+    }
+    function dragOver(e) {
+      e.preventDefault();
+      const container = document.getElementById('drag-list');
+      const dragging = container.querySelector('.dragging');
+      if (!dragging) return;
+      const afterElement = getDragAfterElement(container, e.clientY);
+      if (afterElement == null) {
+        container.appendChild(dragging);
+      } else {
+        container.insertBefore(dragging, afterElement);
+      }
+    }
+    function getDragAfterElement(container, y) {
+      const cards = [...container.querySelectorAll('.drag-card:not(.dragging)')];
+      return cards.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+  </script>
+
+  <!-- LOADERS -->
+  <section id="loaders">
+    <div class="section-label">Components</div>
+    <h2>Loaders</h2>
+    <p class="section-desc">CSS-only spinners for inline and full-panel loading states, in brand colors. No JavaScript required.</p>
+    <hr/>
+
+    <div class="card">
+      <div class="ld-01">
+        <div class="ld-01__stage">
+          <div class="ld-01__cell"><div class="ld-01__ring"></div><span class="ld-01__label">Classic Ring</span></div>
+          <div class="ld-01__cell"><div class="ld-01__double"></div><span class="ld-01__label">Double Ring</span></div>
+          <div class="ld-01__cell"><div class="ld-01__dashed"></div><span class="ld-01__label">Dashed Ring</span></div>
+          <div class="ld-01__cell"><div class="ld-01__gradient"></div><span class="ld-01__label">Gradient Ring</span></div>
+          <div class="ld-01__cell"><div class="ld-01__pulse-ring"></div><span class="ld-01__label">Pulse Ring</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
