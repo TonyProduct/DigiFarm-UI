@@ -26,6 +26,7 @@ A single-page, static HTML reference for DigiFarm's design system — design tok
 - Cards & Surfaces, Selectable Cards
 - Avatar — sizes, no-color/neutral variant, status indicators, avatar groups, hover-to-reveal name, User Card example
 - Alerts — five semantic variants (neutral, info, warning, error, success), plus icon-less variants
+- Banner — status header with optional icon, dismiss, action button, and collapsible content area
 - Calendar — single date, date range, and two-month range pickers
 - Table — two-line field cells, striped rows, hover highlight, anchored row-actions dropdown, sortable Area column
 - Tooltip — top/bottom placement, icon/button/text/badge triggers

@@ -82,8 +82,8 @@
     }
 
     /* SECTION */
-    section { margin-bottom: 72px; }
-    section:first-of-type { margin-top: 0; }
+    section { margin-bottom: 72px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.06); }
+    section:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
 
     .section-label {
       font-family: var(--mono);
@@ -118,6 +118,7 @@
     }
 
     hr {
+      display: none;
       border: none;
       border-top: 1px solid rgba(255,255,255,0.06);
       margin: 0 0 28px;
@@ -161,9 +162,7 @@
     .type-row {
       display: flex; align-items: baseline; gap: 20px;
       padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .type-row:last-child { border-bottom: none; }
     .type-meta {
       width: 160px; flex-shrink: 0;
       font-family: var(--mono); font-size: 10px; color: var(--muted);
@@ -188,8 +187,7 @@
     .spacing-label { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 80px; }
 
     /* COMPONENTS */
-    .comp-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .comp-row:last-child { border-bottom: none; }
+    .comp-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 16px 0; }
     .comp-label { font-family: var(--mono); font-size: 10px; color: var(--purple); width: 100%; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
 
     /* BUTTONS */
@@ -1046,6 +1044,61 @@
     .alert-red .alert-icon { background: #F84A4A; }
     .alert-red .alert-title { color: #F84A4A; }
 
+    /* BANNER */
+    .banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+    }
+    .banner-icon { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 18px; color: inherit; }
+    .banner-content { flex: 1; min-width: 0; }
+    .banner-title { font-size: 13px; font-weight: 600; color: inherit; }
+    .banner-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .banner-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .banner-action-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.15);
+      color: inherit;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .banner-action-btn:hover { background: rgba(255,255,255,0.24); }
+    .banner-close, .banner-chevron {
+      width: 24px; height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius);
+      cursor: pointer;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: inherit;
+      opacity: 0.75;
+      background: transparent;
+      border: none;
+    }
+    .banner-close:hover, .banner-chevron:hover { opacity: 1; background: rgba(255,255,255,0.15); }
+    .banner-info { background: rgba(77,181,250,0.1); border: 1px solid rgba(77,181,250,0.3); color: #4DB5FA; }
+    .banner-success { background: rgba(0,148,99,0.1); border: 1px solid rgba(0,148,99,0.3); color: var(--green); }
+    .banner-warning { background: rgba(234,137,29,0.1); border: 1px solid rgba(234,137,29,0.3); color: #EA891D; }
+    .banner-error { background: rgba(248,74,74,0.1); border: 1px solid rgba(248,74,74,0.3); color: #F84A4A; }
+    .banner-content-panel {
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: none;
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .has-panel .banner { border-radius: var(--radius) var(--radius) 0 0; }
+
     /* TABLE */
     table { width: 100%; border-collapse: collapse; font-size: 13px; }
     th { text-align: left; padding: 10px 14px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 400; }
@@ -1476,6 +1529,7 @@
   <a href="#badges">Badges &amp; Tags</a>
   <a href="#cards">Cards &amp; Surfaces</a>
   <a href="#avatar">Avatar</a>
+  <a href="#banner">Banner</a>
   <a href="#alerts">Alerts</a>
   <a href="#calendar">Calendar</a>
   <a href="#table">Table</a>
@@ -2667,6 +2721,138 @@
       </div>
     </div>
   </section>
+
+  <!-- BANNER -->
+  <section id="banner">
+    <div class="section-label">Components</div>
+    <h2>Banner</h2>
+    <p class="section-desc">Full-width status header, with optional custom icon, dismiss control, action button, and an expandable content area below.</p>
+    <hr/>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+
+      <div class="banner-block">
+        <div class="banner banner-info">
+          <i class="ri-information-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">Simple banner</div>
+            <div class="banner-desc">Just the colored header area.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-block">
+        <div class="banner banner-info">
+          <i class="ri-shield-check-fill banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">With custom icon</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-block">
+        <div class="banner banner-warning">
+          <i class="ri-alert-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">Dismissable</div>
+            <div class="banner-desc">Click the X to dismiss. Works without onDismiss.</div>
+          </div>
+          <div class="banner-actions">
+            <button class="banner-close" onclick="dismissBanner(event, this)"><i class="ri-close-line"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-block">
+        <div class="banner banner-info">
+          <i class="ri-information-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">With action button</div>
+          </div>
+          <div class="banner-actions">
+            <button class="banner-action-btn">Learn more</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-block has-panel">
+        <div class="banner banner-error">
+          <i class="ri-close-circle-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">With content, always visible</div>
+            <div class="banner-desc">collapsible={false} drops the toggle.</div>
+          </div>
+          <div class="banner-actions">
+            <button class="banner-close" onclick="dismissBanner(event, this)"><i class="ri-close-line"></i></button>
+          </div>
+        </div>
+        <div class="banner-content-panel" style="display:block;">
+          The content sits on a card-colored background, visually distinct from the status header above.
+        </div>
+      </div>
+
+      <div class="banner-block has-panel">
+        <div class="banner banner-error" onclick="toggleBannerContent(this)" style="cursor:pointer;">
+          <i class="ri-close-circle-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">With collapsible content</div>
+            <div class="banner-desc">Click the chevron to expand. This is the default.</div>
+          </div>
+          <div class="banner-actions">
+            <i class="ri-arrow-down-s-line banner-chevron" onclick="toggleBannerContent(this.closest('.banner'));event.stopPropagation();"></i>
+            <button class="banner-close" onclick="dismissBanner(event, this)"><i class="ri-close-line"></i></button>
+          </div>
+        </div>
+        <div class="banner-content-panel" style="display:none;">
+          This content area is hidden until you click the chevron above.
+        </div>
+      </div>
+
+      <div class="banner-block has-panel">
+        <div class="banner banner-success" onclick="toggleBannerContent(this)" style="cursor:pointer;">
+          <i class="ri-checkbox-circle-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">Expanded by default</div>
+            <div class="banner-desc">This content area starts open.</div>
+          </div>
+          <div class="banner-actions">
+            <i class="ri-arrow-up-s-line banner-chevron" onclick="toggleBannerContent(this.closest('.banner'));event.stopPropagation();"></i>
+            <button class="banner-close" onclick="dismissBanner(event, this)"><i class="ri-close-line"></i></button>
+          </div>
+        </div>
+        <div class="banner-content-panel" style="display:block;">
+          Content is visible immediately because of defaultIsOpen.
+        </div>
+      </div>
+
+      <div class="banner-block">
+        <div class="banner banner-error" style="border-radius:0;">
+          <i class="ri-close-circle-line banner-icon"></i>
+          <div class="banner-content">
+            <div class="banner-title">Section container</div>
+            <div class="banner-desc">Full-width with no border-radius.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function dismissBanner(e, el) {
+      e.stopPropagation();
+      const block = el.closest('.banner-block');
+      if (block) block.style.display = 'none';
+    }
+    function toggleBannerContent(bannerEl) {
+      const block = bannerEl.closest('.banner-block');
+      const panel = block.querySelector('.banner-content-panel');
+      const chevron = block.querySelector('.banner-chevron');
+      const isOpen = panel.style.display === 'block';
+      panel.style.display = isOpen ? 'none' : 'block';
+      if (chevron) chevron.className = isOpen ? 'ri-arrow-down-s-line banner-chevron' : 'ri-arrow-up-s-line banner-chevron';
+    }
+  </script>
 
   <!-- ALERTS -->
   <section id="alerts">
